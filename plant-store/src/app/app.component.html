@@ -1,0 +1,121 @@
+<div class="page-wrapper">
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="hero-badge">Kolkata Plant Store</span>
+        <h1>Balcony Plants by Paul</h1>
+        <p>
+          Healthy indoor and balcony plants for homes, offices, and gifting.
+          Simple pricing, local delivery, and easy care guidance.
+        </p>
+
+        <div class="hero-actions">
+          <button class="primary-btn">Shop Plants</button>
+          <button class="secondary-btn">WhatsApp to Order</button>
+        </div>
+
+        <div class="hero-features">
+          <div class="feature-card">Healthy Plants</div>
+          <div class="feature-card">Local Delivery</div>
+          <div class="feature-card">Care Support</div>
+        </div>
+      </div>
+
+      <div class="hero-products">
+        <div class="mini-card" *ngFor="let product of products | slice:0:4">
+          <div
+            class="mini-image"
+            [style.background-image]="'url(' + product.image + ')'">
+          </div>
+
+          <div class="mini-body">
+            <div>
+              <h3>{{ product.name }}</h3>
+              <p>{{ product.tag }}</p>
+            </div>
+            <span class="price-badge">₹{{ product.price }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="plants-section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <h2>Available Plants</h2>
+          <p>Simple, healthy, beginner-friendly choices.</p>
+        </div>
+
+        <div class="search-box">
+          <input
+            type="text"
+            [(ngModel)]="searchText"
+            placeholder="Search plant or category" />
+        </div>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card" *ngFor="let product of filteredProducts">
+          <div
+            class="product-image"
+            [style.background-image]="'url(' + product.image + ')'">
+          </div>
+
+          <div class="product-body">
+            <div class="product-top-row">
+              <div>
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.tag }}</p>
+              </div>
+              <span class="product-price">₹{{ product.price }}</span>
+            </div>
+
+            <div class="product-meta">
+              <div><strong>Light:</strong> {{ product.light }}</div>
+              <div><strong>Water:</strong> {{ product.water }}</div>
+            </div>
+
+            <button class="primary-btn full-btn" (click)="orderOnWhatsApp(product)">
+              Order Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="container info-grid">
+      <div>
+        <h2>Plant Care Tips</h2>
+        <div class="tips-list">
+          <div class="tip-card" *ngFor="let tip of careTips">
+            {{ tip }}
+          </div>
+        </div>
+      </div>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <h3>Contact & Delivery</h3>
+          <p><strong>Phone:</strong> +91 90000 00000</p>
+          <p><strong>Location:</strong> Kolkata, West Bengal</p>
+          <p><strong>Delivery:</strong> Local delivery available</p>
+          <button class="secondary-light-btn">Message to Order</button>
+        </div>
+
+        <div class="info-card">
+          <h3>Why buy from us?</h3>
+          <ul>
+            <li>Healthy hand-picked plants</li>
+            <li>Simple care guidance included</li>
+            <li>Affordable pricing for local buyers</li>
+            <li>Good for balcony, indoor decor, and gifting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
