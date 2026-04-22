@@ -1,121 +1,296 @@
-<div class="page-wrapper">
-  <section class="hero-section">
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <span class="hero-badge">Kolkata Plant Store</span>
-        <h1>Balcony Plants by Paul</h1>
+<div class="site-shell">
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#home">
+        <div class="brand__logo">🌿</div>
+        <div class="brand__text">
+          <div class="brand__title">
+            Kolkata
+            <span>Plant Store</span>
+          </div>
+        </div>
+      </a>
+
+      <nav class="nav desktop-nav">
+        <a href="#home">Home</a>
+        <a href="#featured">Plants</a>
+        <a href="#collections">Categories</a>
+        <a href="#care">Care Guide</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a
+          class="header-whatsapp"
+          [href]="getWhatsAppLink('Hello, I want to order plants from Kolkata Plant Store.')"
+          target="_blank"
+          rel="noopener"
+        >
+          Order on WhatsApp
+        </a>
+ 
+        <button class="menu-btn" type="button" (click)="toggleMenu()">☰</button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" [class.mobile-nav--open]="menuOpen">
+      <a href="#home" (click)="closeMenu()">Home</a>
+      <a href="#featured" (click)="closeMenu()">Plants</a>
+      <a href="#collections" (click)="closeMenu()">Categories</a>
+      <a href="#care" (click)="closeMenu()">Care Guide</a>
+      <a href="#contact" (click)="closeMenu()">Contact</a>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-card">
+      <div class="hero-left">
+        <h1>
+          Bringing Nature
+          <br />
+          Closer to You
+          <span class="leaf-mark">🌿</span>
+        </h1>
+
         <p>
-          Healthy indoor and balcony plants for homes, offices, and gifting.
-          Simple pricing, local delivery, and easy care guidance.
+          Handpicked plants for your home,
+          balcony &amp; beautiful living.
         </p>
 
         <div class="hero-actions">
-          <button class="primary-btn">Shop Plants</button>
-          <button class="secondary-btn">WhatsApp to Order</button>
-        </div>
-
-        <div class="hero-features">
-          <div class="feature-card">Healthy Plants</div>
-          <div class="feature-card">Local Delivery</div>
-          <div class="feature-card">Care Support</div>
+          <a class="primary-btn" href="#featured">Explore Plants</a>
+          <a
+            class="secondary-btn"
+            [href]="getWhatsAppLink('Hello, I want to order on WhatsApp.')"
+            target="_blank"
+            rel="noopener"
+          >
+            Order on WhatsApp
+          </a>
         </div>
       </div>
 
-      <div class="hero-products">
-        <div class="mini-card" *ngFor="let product of products | slice:0:4">
-          <div
-            class="mini-image"
-            [style.background-image]="'url(' + product.image + ')'">
-          </div>
+      <div class="hero-right">
+        <img
+          src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1400&q=80"
+          alt="Indoor plant styling"
+        />
+      </div>
+    </div>
 
-          <div class="mini-body">
-            <div>
-              <h3>{{ product.name }}</h3>
-              <p>{{ product.tag }}</p>
-            </div>
-            <span class="price-badge">₹{{ product.price }}</span>
-          </div>
+    <div class="container feature-strip">
+      <div class="feature-item">
+        <div class="feature-icon">🌿</div>
+        <div>
+          <strong>Handpicked</strong>
+          <span>With Love</span>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">🚚</div>
+        <div>
+          <strong>Local Delivery</strong>
+          <span>Across Kolkata</span>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">🍃</div>
+        <div>
+          <strong>Organic Living</strong>
+          <span>Better &amp; Greener</span>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">🧑‍🌾</div>
+        <div>
+          <strong>Care Support</strong>
+          <span>Always Here</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="plants-section">
+  <section class="collections section" id="collections">
     <div class="container">
-      <div class="section-header">
-        <div>
-          <h2>Available Plants</h2>
-          <p>Simple, healthy, beginner-friendly choices.</p>
-        </div>
+      <div class="section-head">
+        <h2>Shop by Collection</h2>
+        <a href="#featured">View All →</a>
+      </div>
+
+      <div class="collection-grid">
+        <article class="collection-card">
+          <div class="collection-image">
+            <img
+              src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=1000&q=80"
+              alt="Indoor plants"
+            />
+          </div>
+          <div class="collection-title">Indoor Plants</div>
+        </article>
+
+        <article class="collection-card">
+          <div class="collection-image">
+            <img
+              src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1000&q=80"
+              alt="Balcony plants"
+            />
+          </div>
+          <div class="collection-title">Balcony Plants</div>
+        </article>
+
+        <article class="collection-card">
+          <div class="collection-image">
+            <img
+              src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1000&q=80"
+              alt="Low maintenance plants"
+            />
+          </div>
+          <div class="collection-title">Low Maintenance</div>
+        </article>
+
+       <article class="collection-card">
+  <div class="collection-image">
+    <img
+      src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1000&q=80"
+      alt="Plants under 199"
+    />
+  </div>
+  <div class="collection-title">Plants Under ₹199</div>
+</article>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured section" id="featured">
+    <div class="container">
+      <div class="section-head featured-head">
+        <h2>Featured Plants</h2>
 
         <div class="search-box">
           <input
             type="text"
             [(ngModel)]="searchText"
-            placeholder="Search plant or category" />
+            placeholder="Search plant, tag or light..."
+          />
         </div>
       </div>
 
-      <div class="product-grid">
-        <div class="product-card" *ngFor="let product of filteredProducts">
-          <div
-            class="product-image"
-            [style.background-image]="'url(' + product.image + ')'">
+      <div class="product-grid" *ngIf="filteredProducts.length > 0">
+        <article
+          class="product-card"
+          *ngFor="let product of filteredProducts; trackBy: trackByProduct"
+        >
+          <div class="product-card__image">
+            <img [src]="product.image" [alt]="product.name" />
+            <span class="product-tag">{{ product.tag }}</span>
           </div>
 
-          <div class="product-body">
-            <div class="product-top-row">
-              <div>
-                <h3>{{ product.name }}</h3>
-                <p>{{ product.tag }}</p>
-              </div>
-              <span class="product-price">₹{{ product.price }}</span>
-            </div>
+          <div class="product-card__body">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
 
             <div class="product-meta">
-              <div><strong>Light:</strong> {{ product.light }}</div>
-              <div><strong>Water:</strong> {{ product.water }}</div>
+              <span>☀ {{ product.light }}</span>
+              <span>💧 {{ product.water }}</span>
             </div>
 
-            <button class="primary-btn full-btn" (click)="orderOnWhatsApp(product)">
-              Order Now
-            </button>
+            <div class="product-bottom">
+              <strong>₹{{ product.price }}</strong>
+              <a
+                class="product-btn"
+                [href]="getProductWhatsAppLink(product)"
+                target="_blank"
+                rel="noopener"
+              >
+                Order
+              </a>
+            </div>
           </div>
-        </div>
+        </article>
+      </div>
+
+      <div class="empty-state" *ngIf="filteredProducts.length === 0">
+        <h3>No plants found</h3>
+        <p>Try another search.</p>
       </div>
     </div>
   </section>
 
-  <section class="info-section">
-    <div class="container info-grid">
+  <section class="care section" id="care">
+    <div class="container care-box">
+      <div class="care-left">
+        <h2>Simple Plant Care</h2>
+        <p>
+          Most plant problems happen because of overwatering and wrong light.
+          Keep it simple and the plant will do better.
+        </p>
+
+        <ul>
+          <li>Water only when top soil feels dry</li>
+          <li>Keep bright plants near light</li>
+          <li>Use pots with drainage holes</li>
+          <li>Ask on WhatsApp if confused</li>
+        </ul>
+      </div>
+
+      <div class="care-right">
+        <img
+          src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1200&q=80"
+          alt="Plant care"
+        />
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="container footer-grid">
       <div>
-        <h2>Plant Care Tips</h2>
-        <div class="tips-list">
-          <div class="tip-card" *ngFor="let tip of careTips">
-            {{ tip }}
-          </div>
-        </div>
+        <h3>Kolkata Plant Store</h3>
+        <p>Earthy greens for beautiful spaces.</p>
       </div>
 
-      <div class="info-cards">
-        <div class="info-card">
-          <h3>Contact & Delivery</h3>
-          <p><strong>Phone:</strong> +91 90000 00000</p>
-          <p><strong>Location:</strong> Kolkata, West Bengal</p>
-          <p><strong>Delivery:</strong> Local delivery available</p>
-          <button class="secondary-light-btn">Message to Order</button>
-        </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#featured">Plants</a></li>
+          <li><a href="#care">Care Guide</a></li>
+        </ul>
+      </div>
 
-        <div class="info-card">
-          <h3>Why buy from us?</h3>
-          <ul>
-            <li>Healthy hand-picked plants</li>
-            <li>Simple care guidance included</li>
-            <li>Affordable pricing for local buyers</li>
-            <li>Good for balcony, indoor decor, and gifting</li>
-          </ul>
-        </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>{{ phoneDisplay }}</li>
+          <li>{{ location }}</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Order</h4>
+        <a
+          class="footer-whatsapp"
+          [href]="getWhatsAppLink('Hello, I visited your website and want to order plants.')"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp Us
+        </a>
       </div>
     </div>
-  </section>
+  </footer>
+
+  <a
+    class="floating-whatsapp"
+    [href]="getWhatsAppLink('Hello, I visited your website and want to know about your plants.')"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat on WhatsApp"
+  >
+    WhatsApp
+  </a>
 </div>

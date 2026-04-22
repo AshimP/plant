@@ -7,6 +7,31 @@ interface PlantItem {
   water: string;
   tag: string;
   image: string;
+  description: string;
+}
+
+interface CollectionItem {
+  title: string;
+  subtitle: string;
+  image: string;
+}
+
+interface BenefitItem {
+  title: string;
+  text: string;
+  icon: string;
+}
+
+interface TestimonialItem {
+  name: string;
+  area: string;
+  text: string;
+}
+
+interface FaqItem {
+  question: string;
+  answer: string;
+  open: boolean;
 }
 
 @Component({
@@ -15,49 +40,134 @@ interface PlantItem {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'plant-store-angular14';
+  title = 'plant-store';
+  menuOpen = false;
   searchText = '';
+
+  storeName = 'Kolkata Plant Store';
+  location = 'Kolkata, West Bengal';
+  phoneDisplay = '+91 98765 43210';
+  phoneRaw = '919876543210';
 
   products: PlantItem[] = [
     {
       name: 'Rosemary',
       price: 149,
-      light: 'Full sun',
-      water: 'Water when top soil dries',
+      light: 'Full Sun',
+      water: 'Low Water',
       tag: 'Herb',
-      image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80'
+      image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80',
+      description: 'Aromatic herb that looks clean, elegant and useful in sunny spaces.'
     },
     {
       name: 'Pink Syngonium',
-      price: 129,
-      light: 'Bright indirect light',
-      water: 'Keep slightly moist',
+      price: 199,
+      light: 'Bright Indirect Light',
+      water: 'Moderate Water',
       tag: 'Indoor',
-      image: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=1200&q=80'
+      image: 'https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&w=1200&q=80',
+      description: 'Soft decorative foliage with a refined indoor look for calm corners.'
     },
     {
-      name: 'Asparagus Fern',
-      price: 159,
-      light: 'Bright indirect light',
-      water: 'Regular watering',
-      tag: 'Balcony',
-      image: 'https://images.unsplash.com/photo-1593691509543-c55fb32e7355?auto=format&fit=crop&w=1200&q=80'
+  name: 'Boston Fern',
+  price: 249,
+  light: 'Indirect Light',
+  water: 'Keep Moist',
+  tag: 'Air Purifier',
+  image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80',
+  description: 'Lush green texture that adds fullness and softness to the home.'
+},
+    {
+  name: 'Snake Plant',
+  price: 179,
+  light: 'Low Light',
+  water: 'Low Water',
+  tag: 'Low Maintenance',
+  image: 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1200&q=80',
+  description: 'Strong sculptural leaves for a premium, modern and easy-care feel.'
+}
+  ];
+
+  collections: CollectionItem[] = [
+    {
+      title: 'Indoor Luxury',
+      subtitle: 'Refined greens for living rooms, bedrooms and styled home corners.',
+      image: 'https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=1200&q=80'
     },
     {
-      name: 'Money Plant',
-      price: 99,
-      light: 'Low to medium light',
-      water: 'Water when soil is lightly dry',
-      tag: 'Easy care',
-      image: 'https://images.unsplash.com/photo-1604762524889-3e2fcc145683?auto=format&fit=crop&w=1200&q=80'
+      title: 'Balcony Edit',
+      subtitle: 'Fresh curated plants for sunlight, air and slow morning routines.',
+      image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1200&q=80'
+    },
+    {
+      title: 'Easy Elegance',
+      subtitle: 'Low-effort plants that still look styled and premium.',
+      image: 'https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1200&q=80'
     }
   ];
 
-  careTips: string[] = [
-    'Check soil before watering. Wet soil does not need more water.',
-    'Keep rosemary in direct sunlight for better growth.',
-    'Indoor plants prefer bright indirect light.',
-    'Always use pots with drainage holes.'
+  benefits: BenefitItem[] = [
+    {
+      title: 'Curated Collection',
+      text: 'A carefully chosen selection designed for beautiful homes, not nursery clutter.',
+      icon: '🌿'
+    },
+    {
+      title: 'Local Delivery',
+      text: 'Simple delivery across Kolkata with fast support through WhatsApp.',
+      icon: '🚚'
+    },
+    {
+      title: 'Premium Feel',
+      text: 'Plants chosen for visual warmth, styling value and everyday ease.',
+      icon: '🪴'
+    },
+    {
+      title: 'Care Guidance',
+      text: 'Clear support on light, water and placement so your plant actually survives.',
+      icon: '💬'
+    }
+  ];
+
+  testimonials: TestimonialItem[] = [
+    {
+      name: 'Ananya',
+      area: 'Kolkata',
+      text: 'The plant looked elegant and healthy. It really felt more premium than a normal nursery order.'
+    },
+    {
+      name: 'Rohan',
+      area: 'Salt Lake',
+      text: 'Beautiful styling and smooth ordering. The quality and presentation were both very good.'
+    },
+    {
+      name: 'Priya',
+      area: 'Gariahat',
+      text: 'Loved the boutique look of the site and the plant matched the photos well.'
+    }
+  ];
+
+  faqs: FaqItem[] = [
+    {
+      question: 'Do you deliver all over Kolkata?',
+      answer: 'We deliver across many Kolkata areas. Share your location on WhatsApp and we will confirm quickly.',
+      open: true
+    },
+    {
+      question: 'Are pots included with the plants?',
+      answer: 'Yes, the nursery pot shown with the plant is included unless mentioned otherwise.',
+      open: false
+    },
+    {
+      question: 'How do I place an order?',
+      answer: 'Click any WhatsApp button on the site and your message opens with the selected plant details.',
+      open: false
+    },
+    {
+      question: 'Do you provide care instructions?',
+      answer: 'Yes, we share simple guidance for watering, light and placement after purchase.',
+      open: false
+    }
   ];
 
   get filteredProducts(): PlantItem[] {
@@ -69,14 +179,38 @@ export class AppComponent {
 
     return this.products.filter(product =>
       product.name.toLowerCase().includes(value) ||
-      product.tag.toLowerCase().includes(value)
+      product.tag.toLowerCase().includes(value) ||
+      product.light.toLowerCase().includes(value)
     );
   }
 
-  orderOnWhatsApp(product: PlantItem): void {
-    const phone = '919000000000';
-    const message = `Hello, I want to order ${product.name} for ₹${product.price}.`;
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+  toggleMenu(): void {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu(): void {
+    this.menuOpen = false;
+  }
+
+  toggleFaq(index: number): void {
+    this.faqs[index].open = !this.faqs[index].open;
+  }
+
+  getWhatsAppLink(message: string): string {
+    return `https://wa.me/${this.phoneRaw}?text=${encodeURIComponent(message)}`;
+  }
+
+  getProductWhatsAppLink(product: PlantItem): string {
+    return this.getWhatsAppLink(
+      `Hello, I want to order ${product.name} for ₹${product.price}. Please share details.`
+    );
+  }
+
+  trackByProduct(index: number, item: PlantItem): string {
+    return item.name;
+  }
+
+  trackByCollection(index: number, item: CollectionItem): string {
+    return item.title;
   }
 }
