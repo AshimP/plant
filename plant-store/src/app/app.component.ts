@@ -25,8 +25,8 @@ export class AppComponent {
   selectedCategory = 'All Plants';
   sortOption = 'Popular';
 
-  phoneDisplay = '+91 98765 43210';
-  phoneRaw = '919876543210';
+  phoneDisplay = 'NA';
+  phoneRaw = '918961275920';
   location = 'Kolkata, West Bengal';
 
   categories: string[] = [
