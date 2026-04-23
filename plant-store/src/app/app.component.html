@@ -340,10 +340,11 @@
   class="product-card product-card--premium"
   *ngFor="let product of sortedFilteredProducts; trackBy: trackByProduct"
 >
-  <div class="product-card__image">
-    <img [src]="product.image" [alt]="product.name" />
-    <span class="product-tag">{{ product.tag }}</span>
-  </div>
+ <div class="product-card__image">
+  <img [src]="product.image" [alt]="product.name" />
+  <span class="product-tag">{{ product.tag }}</span>
+  <span class="product-badge" *ngIf="product.badge">{{ product.badge }}</span>
+</div>
 
   <div class="product-card__body">
     <div class="product-card__top">
@@ -416,12 +417,26 @@
     </button>
 
     <div class="product-modal__grid">
-      <div class="product-modal__image">
-        <img
-          [src]="selectedProduct?.image"
-          [alt]="selectedProduct?.name"
-        />
-      </div>
+      <div class="product-modal__image-wrap">
+  <div class="product-modal__image">
+    <img
+      [src]="selectedProductImage || selectedProduct?.image"
+      [alt]="selectedProduct?.name"
+    />
+  </div>
+
+  <div class="product-modal__thumbs" *ngIf="selectedProduct?.gallery?.length">
+    <button
+      type="button"
+      class="product-modal__thumb"
+      *ngFor="let image of selectedProduct?.gallery"
+      [class.product-modal__thumb--active]="selectedProductImage === image"
+      (click)="setSelectedProductImage(image)"
+    >
+      <img [src]="image" [alt]="selectedProduct?.name" />
+    </button>
+  </div>
+</div>
 
       <div class="product-modal__content">
         <span class="product-modal__tag">{{ selectedProduct?.tag }}</span>
@@ -631,6 +646,30 @@
         <summary>What if a plant is damaged during delivery?</summary>
         <p>Please share photos immediately on WhatsApp after delivery. We will check and guide you on the next step.</p>
       </details>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials section" id="reviews">
+  <div class="container">
+    <div class="section-title-wrap testimonials-head">
+      <span class="section-mini-label">Customer Love</span>
+      <h2>What people are saying</h2>
+    </div>
+
+    <div class="testimonial-grid">
+      <article class="testimonial-card" *ngFor="let item of testimonials">
+        <div class="testimonial-stars">★★★★★</div>
+
+        <p class="testimonial-text">
+          “{{ item.text }}”
+        </p>
+
+        <div class="testimonial-user">
+          <strong>{{ item.name }}</strong>
+          <span>{{ item.area }}</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
