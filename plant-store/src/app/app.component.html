@@ -1,46 +1,168 @@
 <div class="site-shell">
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <a class="brand" href="#home">
-        <div class="brand__logo">🌿</div>
-        <div class="brand__text">
-          <div class="brand__title">
-            Kolkata
-            <span>Plant Store</span>
-          </div>
-        </div>
+ <header class="topbar">
+  <div class="container topbar__inner">
+    <a class="brand" href="#home">
+      <div class="brand__logo">🌿</div>
+      <div class="brand__text">
+        <div class="brand__title">Kolkata</div>
+        <div class="brand__sub">PLANT STORE</div>
+      </div>
+    </a>
+
+    <nav class="nav desktop-nav">
+      <a href="#home">Home</a>
+      <a href="#featured">Plants</a>
+      <a href="#collections">Categories</a>
+      <a href="#care">Care Guide</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a
+        class="header-whatsapp"
+        [href]="getWhatsAppLink('Hello, I want to order plants from Kolkata Plant Store.')"
+        target="_blank"
+        rel="noopener"
+      >
+        Order on WhatsApp
       </a>
 
-      <nav class="nav desktop-nav">
-        <a href="#home">Home</a>
-        <a href="#featured">Plants</a>
-        <a href="#collections">Categories</a>
-        <a href="#care">Care Guide</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <button class="menu-btn" type="button" (click)="toggleMenu()">☰</button>
+    </div>
+  </div>
 
-      <div class="header-actions">
+  <div class="mobile-nav" [class.mobile-nav--open]="menuOpen">
+    <a href="#home" (click)="closeMenu()">Home</a>
+    <a href="#featured" (click)="closeMenu()">Plants</a>
+    <a href="#collections" (click)="closeMenu()">Categories</a>
+    <a href="#care" (click)="closeMenu()">Care Guide</a>
+    <a href="#contact" (click)="closeMenu()">Contact</a>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-card">
+    <div class="hero-left">
+      <!-- <span class="hero-kicker">Earthy Organic Boutique</span> -->
+
+      <h1>
+        Bringing Nature
+        <br />
+        Closer to You
+        <span class="leaf-mark">🌿</span>
+      </h1>
+
+      <p>
+        Handpicked plants for your home,
+        balcony &amp; beautiful living.
+      </p>
+
+      <div class="hero-actions">
+        <a class="primary-btn" href="#featured">Explore Plants</a>
         <a
-          class="header-whatsapp"
-          [href]="getWhatsAppLink('Hello, I want to order plants from Kolkata Plant Store.')"
+          class="secondary-btn"
+          [href]="getWhatsAppLink('Hello, I want to order on WhatsApp.')"
           target="_blank"
           rel="noopener"
         >
           Order on WhatsApp
         </a>
- 
-        <button class="menu-btn" type="button" (click)="toggleMenu()">☰</button>
       </div>
     </div>
 
-    <div class="mobile-nav" [class.mobile-nav--open]="menuOpen">
-      <a href="#home" (click)="closeMenu()">Home</a>
-      <a href="#featured" (click)="closeMenu()">Plants</a>
-      <a href="#collections" (click)="closeMenu()">Categories</a>
-      <a href="#care" (click)="closeMenu()">Care Guide</a>
-      <a href="#contact" (click)="closeMenu()">Contact</a>
+    <div class="hero-right">
+      <img
+        src="assets/hero-premium.jpg"
+        alt="Premium indoor plant collection"
+      />
     </div>
-  </header>
+  </div>
+
+  <div class="container feature-strip">
+    <div class="feature-item">
+      <div class="feature-icon">🌿</div>
+      <div>
+        <strong>Handpicked</strong>
+        <span>With Love</span>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">🚚</div>
+      <div>
+        <strong>Local Delivery</strong>
+        <span>Across Kolkata</span>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">🍃</div>
+      <div>
+        <strong>Organic Living</strong>
+        <span>Better &amp; Greener</span>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <div class="feature-icon">🧑‍🌾</div>
+      <div>
+        <strong>Care Support</strong>
+        <span>Always Here</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="collections section" id="collections">
+  <div class="container">
+    <div class="section-head">
+      <h2>Shop by Collection</h2>
+      <a href="#featured">View All →</a>
+    </div>
+
+    <div class="collection-grid">
+      <article class="collection-card collection-card--premium">
+        <div class="collection-image">
+         <img
+  src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1200&q=80"
+  alt="Indoor plants"
+/>
+        </div>
+        <div class="collection-title">Indoor Plants</div>
+      </article>
+
+      <article class="collection-card collection-card--premium">
+        <div class="collection-image">
+         <img
+  src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1200&q=80"
+  alt="Balcony plants"
+/>
+        </div>
+        <div class="collection-title">Balcony Plants</div>
+      </article>
+
+      <article class="collection-card collection-card--premium">
+        <div class="collection-image">
+          <img
+  src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80"
+  alt="Plants under 199"
+/>
+        </div>
+        <div class="collection-title">Low Maintenance</div>
+      </article>
+
+      <article class="collection-card collection-card--premium">
+        <div class="collection-image">
+         <img
+  src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80"
+  alt="Plants under 199"
+/>
+        </div>
+        <div class="collection-title">Plants Under ₹199</div>
+      </article>
+    </div>
+  </div>
+</section>
 
   <section class="hero" id="home">
     <div class="container hero-card">
@@ -164,11 +286,30 @@
     </div>
   </section>
 
-  <section class="featured section" id="featured">
-    <div class="container">
-      <div class="section-head featured-head">
-        <h2>Featured Plants</h2>
+<section class="featured section" id="featured">
+  <div class="container">
+    <div class="section-head featured-head">
+      <h2>Featured Plants</h2>
+    </div>
 
+    <div class="catalog-toolbar">
+      <div class="catalog-toolbar__left">
+        <div class="filter-label">Filter by Category</div>
+
+        <div class="filter-row">
+          <button
+            type="button"
+            class="filter-chip"
+            *ngFor="let category of categories; trackBy: trackByCategory"
+            [class.filter-chip--active]="selectedCategory === category"
+            (click)="selectCategory(category)"
+          >
+            {{ category }}
+          </button>
+        </div>
+      </div>
+
+      <div class="catalog-toolbar__right">
         <div class="search-box">
           <input
             type="text"
@@ -176,113 +317,165 @@
             placeholder="Search plant, tag or light..."
           />
         </div>
-      </div>
 
-      <div class="product-grid" *ngIf="filteredProducts.length > 0">
-        <article
-          class="product-card"
-          *ngFor="let product of filteredProducts; trackBy: trackByProduct"
-        >
-          <div class="product-card__image">
-            <img [src]="product.image" [alt]="product.name" />
-            <span class="product-tag">{{ product.tag }}</span>
-          </div>
-
-          <div class="product-card__body">
-            <h3>{{ product.name }}</h3>
-            <p>{{ product.description }}</p>
-
-            <div class="product-meta">
-              <span>☀ {{ product.light }}</span>
-              <span>💧 {{ product.water }}</span>
-            </div>
-
-            <div class="product-bottom">
-              <strong>₹{{ product.price }}</strong>
-              <a
-                class="product-btn"
-                [href]="getProductWhatsAppLink(product)"
-                target="_blank"
-                rel="noopener"
-              >
-                Order
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="empty-state" *ngIf="filteredProducts.length === 0">
-        <h3>No plants found</h3>
-        <p>Try another search.</p>
+        <div class="sort-box">
+          <label for="sortSelect">Sort by</label>
+          <select id="sortSelect" [(ngModel)]="sortOption">
+            <option *ngFor="let option of sortOptions; trackBy: trackBySort" [value]="option">
+              {{ option }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
-  </section>
 
-  <section class="care section" id="care">
-    <div class="container care-box">
-      <div class="care-left">
-        <h2>Simple Plant Care</h2>
-        <p>
-          Most plant problems happen because of overwatering and wrong light.
-          Keep it simple and the plant will do better.
-        </p>
+    <div class="product-grid product-grid--premium" *ngIf="sortedFilteredProducts.length > 0">
+      <article
+  class="product-card product-card--premium"
+  *ngFor="let product of sortedFilteredProducts; trackBy: trackByProduct"
+>
+  <div class="product-card__image">
+    <img [src]="product.image" [alt]="product.name" />
+    <span class="product-tag">{{ product.tag }}</span>
+  </div>
 
-        <ul>
-          <li>Water only when top soil feels dry</li>
-          <li>Keep bright plants near light</li>
-          <li>Use pots with drainage holes</li>
-          <li>Ask on WhatsApp if confused</li>
-        </ul>
-      </div>
-
-      <div class="care-right">
-        <img
-          src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1200&q=80"
-          alt="Plant care"
-        />
+  <div class="product-card__body">
+    <div class="product-card__top">
+      <div>
+        <h3>{{ product.name }}</h3>
+        <p class="product-card__desc">{{ product.description }}</p>
       </div>
     </div>
-  </section>
 
-  <footer class="footer" id="contact">
-    <div class="container footer-grid">
-      <div>
-        <h3>Kolkata Plant Store</h3>
-        <p>Earthy greens for beautiful spaces.</p>
+    <div class="product-meta product-meta--premium">
+      <div class="meta-pill">☀ {{ product.light }}</div>
+      <div class="meta-pill">💧 {{ product.water }}</div>
+      <div class="meta-pill">📍 {{ product.placement }}</div>
+      <div class="meta-pill">🪴 {{ product.potSize }}</div>
+      <div class="meta-pill">⭐ {{ product.difficulty }}</div>
+    </div>
+
+    <div class="product-card__footer">
+      <div class="product-price-wrap">
+        <span class="product-price-label">Starting at</span>
+        <strong class="product-price">₹{{ product.price }}</strong>
       </div>
 
-      <div>
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#collections">Collections</a></li>
-          <li><a href="#featured">Plants</a></li>
-          <li><a href="#care">Care Guide</a></li>
-        </ul>
-      </div>
+      <a
+        class="product-btn product-btn--premium"
+        [href]="getProductWhatsAppLink(product)"
+        target="_blank"
+        rel="noopener"
+      >
+        Order on WhatsApp
+      </a>
+    </div>
+  </div>
+</article>
+    </div>
 
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li>{{ phoneDisplay }}</li>
-          <li>{{ location }}</li>
-        </ul>
-      </div>
+    <div class="empty-state" *ngIf="sortedFilteredProducts.length === 0">
+      <h3>No plants found</h3>
+      <p>Try another search or choose a different category.</p>
+    </div>
+  </div>
+</section>
 
-      <div>
-        <h4>Order</h4>
-        <a
-          class="footer-whatsapp"
-          [href]="getWhatsAppLink('Hello, I visited your website and want to order plants.')"
-          target="_blank"
-          rel="noopener"
-        >
-          WhatsApp Us
-        </a>
+<section class="care section" id="care">
+  <div class="container care-box care-box--premium">
+    <div class="care-left">
+      <span class="care-kicker">Plant Care Guide</span>
+
+      <h2>Keep your plants healthy without overthinking it</h2>
+
+      <p>
+        Good plant care is mostly about the basics done properly. Right light,
+        sensible watering, and decent drainage solve more problems than panic.
+      </p>
+
+      <ul class="care-list">
+        <li>Water only when the top soil feels dry</li>
+        <li>Keep bright-light plants near filtered sunlight</li>
+        <li>Always use pots with drainage holes</li>
+        <li>Ask on WhatsApp if you are unsure about placement</li>
+      </ul>
+
+      <a
+        class="secondary-btn care-btn"
+        [href]="getWhatsAppLink('Hello, I want plant care guidance before ordering.')"
+        target="_blank"
+        rel="noopener"
+      >
+        Ask for Care Help
+      </a>
+    </div>
+
+    <div class="care-right care-right--premium">
+      <img
+        src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1400&q=80"
+        alt="Plant care styling"
+      />
+      <div class="care-badge">Easy care tips included</div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer footer--premium" id="contact">
+  <div class="container footer-grid footer-grid--premium">
+    <div class="footer-brand">
+      <h3>Kolkata Plant Store</h3>
+      <p>
+        Earthy greens for beautiful spaces. Handpicked plants for homes,
+        balconies and simple everyday joy.
+      </p>
+
+      <div class="footer-social">
+        <span>🌿 Handpicked</span>
+        <span>🚚 Kolkata Delivery</span>
       </div>
     </div>
-  </footer>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#featured">Featured Plants</a></li>
+        <li><a href="#care">Care Guide</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>{{ phoneDisplay }}</li>
+        <li>{{ location }}</li>
+        <li>Mon - Sun: 9:00 AM - 8:00 PM</li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-col--cta">
+      <h4>Order on WhatsApp</h4>
+      <p>
+        Message us directly for ordering, care support and local delivery details.
+      </p>
+
+      <a
+        class="footer-whatsapp footer-whatsapp--premium"
+        [href]="getWhatsAppLink('Hello, I visited your website and want to order plants.')"
+        target="_blank"
+        rel="noopener"
+      >
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+
+  <div class="container footer-bottom footer-bottom--premium">
+    <span>© 2026 Kolkata Plant Store. All rights reserved.</span>
+    <span>Made for plant lovers in Kolkata</span>
+  </div>
+</footer>
 
   <a
     class="floating-whatsapp"
