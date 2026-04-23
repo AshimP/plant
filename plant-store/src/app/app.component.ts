@@ -24,7 +24,7 @@ export class AppComponent {
   searchText = '';
   selectedCategory = 'All Plants';
   sortOption = 'Popular';
-
+  selectedProduct: PlantItem | null = null;
   phoneDisplay = 'NA';
   phoneRaw = '918961275920';
   location = 'Kolkata, West Bengal';
@@ -188,6 +188,14 @@ export class AppComponent {
 
     return this.getWhatsAppLink(message);
   }
+
+  openProductDetails(product: PlantItem): void {
+  this.selectedProduct = product;
+}
+
+closeProductDetails(): void {
+  this.selectedProduct = null;
+}
 
   trackByProduct(index: number, item: PlantItem): string {
     return item.name;

@@ -116,7 +116,10 @@
 <section class="collections section" id="collections">
   <div class="container">
     <div class="section-head">
-      <h2>Shop by Collection</h2>
+     <div class="section-title-wrap">
+  <span class="section-mini-label">Browse by Style</span>
+  <h2>Shop by Collection</h2>
+</div>
       <a href="#featured">View All →</a>
     </div>
 
@@ -289,7 +292,10 @@
 <section class="featured section" id="featured">
   <div class="container">
     <div class="section-head featured-head">
-      <h2>Featured Plants</h2>
+    <div class="section-title-wrap">
+  <span class="section-mini-label">Curated Picks</span>
+  <h2>Featured Plants</h2>
+</div>
     </div>
 
     <div class="catalog-toolbar">
@@ -355,21 +361,31 @@
       <div class="meta-pill">⭐ {{ product.difficulty }}</div>
     </div>
 
-    <div class="product-card__footer">
-      <div class="product-price-wrap">
-        <span class="product-price-label">Starting at</span>
-        <strong class="product-price">₹{{ product.price }}</strong>
-      </div>
+   <div class="product-card__footer">
+  <div class="product-price-wrap">
+    <span class="product-price-label">Starting at</span>
+    <strong class="product-price">₹{{ product.price }}</strong>
+  </div>
 
-      <a
-        class="product-btn product-btn--premium"
-        [href]="getProductWhatsAppLink(product)"
-        target="_blank"
-        rel="noopener"
-      >
-        Order on WhatsApp
-      </a>
-    </div>
+  <div class="product-card__actions">
+    <button
+      type="button"
+      class="details-btn"
+      (click)="openProductDetails(product)"
+    >
+      View Details
+    </button>
+
+    <a
+      class="product-btn product-btn--premium"
+      [href]="getProductWhatsAppLink(product)"
+      target="_blank"
+      rel="noopener"
+    >
+      Order on WhatsApp
+    </a>
+  </div>
+</div>
   </div>
 </article>
     </div>
@@ -381,12 +397,104 @@
   </div>
 </section>
 
+<div
+  class="product-modal-backdrop"
+  *ngIf="selectedProduct"
+  (click)="closeProductDetails()"
+>
+  <div
+    class="product-modal"
+    (click)="$event.stopPropagation()"
+  >
+    <button
+      type="button"
+      class="product-modal__close"
+      (click)="closeProductDetails()"
+      aria-label="Close product details"
+    >
+      ✕
+    </button>
+
+    <div class="product-modal__grid">
+      <div class="product-modal__image">
+        <img
+          [src]="selectedProduct?.image"
+          [alt]="selectedProduct?.name"
+        />
+      </div>
+
+      <div class="product-modal__content">
+        <span class="product-modal__tag">{{ selectedProduct?.tag }}</span>
+
+        <h2>{{ selectedProduct?.name }}</h2>
+
+        <p class="product-modal__desc">
+          {{ selectedProduct?.description }}
+        </p>
+
+        <div class="product-modal__price">
+          ₹{{ selectedProduct?.price }}
+        </div>
+
+        <div class="product-modal__meta">
+          <div class="modal-info-card">
+            <strong>Light</strong>
+            <span>{{ selectedProduct?.light }}</span>
+          </div>
+
+          <div class="modal-info-card">
+            <strong>Water</strong>
+            <span>{{ selectedProduct?.water }}</span>
+          </div>
+
+          <div class="modal-info-card">
+            <strong>Placement</strong>
+            <span>{{ selectedProduct?.placement }}</span>
+          </div>
+
+          <div class="modal-info-card">
+            <strong>Pot Size</strong>
+            <span>{{ selectedProduct?.potSize }}</span>
+          </div>
+
+          <div class="modal-info-card">
+            <strong>Difficulty</strong>
+            <span>{{ selectedProduct?.difficulty }}</span>
+          </div>
+        </div>
+
+        <div class="product-modal__actions">
+          <a
+            class="product-btn product-btn--premium"
+            [href]="getProductWhatsAppLink(selectedProduct!)"
+            target="_blank"
+            rel="noopener"
+          >
+            Order on WhatsApp
+          </a>
+
+          <button
+            type="button"
+            class="details-btn details-btn--secondary"
+            (click)="closeProductDetails()"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <section class="care section" id="care">
   <div class="container care-box care-box--premium">
     <div class="care-left">
       <span class="care-kicker">Plant Care Guide</span>
 
-      <h2>Keep your plants healthy without overthinking it</h2>
+    <div class="section-title-wrap">
+  <span class="section-mini-label">Simple Care</span>
+  <h2>Keep your plants healthy without overthinking it</h2>
+</div>
 
       <p>
         Good plant care is mostly about the basics done properly. Right light,
@@ -416,6 +524,113 @@
         alt="Plant care styling"
       />
       <div class="care-badge">Easy care tips included</div>
+    </div>
+  </div>
+</section>
+
+<section class="about section" id="about">
+  <div class="container about-box">
+    <div class="about-box__content">
+      <span class="section-mini-label">About Us</span>
+      <h2>Plants chosen for beautiful homes, not just shelves full of stock</h2>
+      <p>
+        Kolkata Plant Store is built around simple, handpicked greenery for homes,
+        balconies and gifting. The idea is not to overwhelm people with hundreds of
+        random plants, but to offer a smaller curated collection that looks elegant,
+        feels warm and is easier to care for.
+      </p>
+      <p>
+        We focus on healthy plants, honest guidance and easy WhatsApp ordering so
+        buying plants feels calm instead of confusing.
+      </p>
+    </div>
+
+    <div class="about-box__cards">
+      <div class="about-mini-card">
+        <strong>Curated Selection</strong>
+        <span>Thoughtful plants for real home spaces</span>
+      </div>
+
+      <div class="about-mini-card">
+        <strong>Beginner Friendly</strong>
+        <span>Simple care support for easy plant ownership</span>
+      </div>
+
+      <div class="about-mini-card">
+        <strong>Local Service</strong>
+        <span>Focused on smooth delivery in Kolkata</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="delivery section" id="delivery">
+  <div class="container delivery-box">
+    <div class="section-title-wrap">
+      <span class="section-mini-label">Delivery Info</span>
+      <h2>Simple local delivery with careful handling</h2>
+    </div>
+
+    <div class="delivery-grid">
+      <article class="delivery-card">
+        <div class="delivery-card__icon">📍</div>
+        <h3>Service Area</h3>
+        <p>Delivery available across many Kolkata areas. Exact availability can be confirmed on WhatsApp.</p>
+      </article>
+
+      <article class="delivery-card">
+        <div class="delivery-card__icon">📦</div>
+        <h3>Packaging</h3>
+        <p>Plants are packed carefully to reduce damage and keep the soil and pot stable during transport.</p>
+      </article>
+
+      <article class="delivery-card">
+        <div class="delivery-card__icon">⏰</div>
+        <h3>Delivery Timing</h3>
+        <p>Typical delivery timing is shared during order confirmation. Same-day or next-day may be possible for some areas.</p>
+      </article>
+
+      <article class="delivery-card">
+        <div class="delivery-card__icon">💬</div>
+        <h3>Order Support</h3>
+        <p>All order updates, care guidance and delivery confirmation can be handled directly on WhatsApp.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="faq section" id="faq">
+  <div class="container faq-box">
+    <div class="section-title-wrap">
+      <span class="section-mini-label">FAQ</span>
+      <h2>Before you order</h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Do you deliver all over Kolkata?</summary>
+        <p>We deliver across many Kolkata locations. Share your area on WhatsApp and we will confirm availability quickly.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Are pots included with the plants?</summary>
+        <p>Yes, the nursery pot shown with the plant is included unless mentioned otherwise.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I place an order?</summary>
+        <p>Click any WhatsApp order button on the website. A message will open with the plant details already filled in.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you provide care guidance?</summary>
+        <p>Yes. Basic care information for watering, light and placement is shared so beginners can manage plants more easily.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if a plant is damaged during delivery?</summary>
+        <p>Please share photos immediately on WhatsApp after delivery. We will check and guide you on the next step.</p>
+      </details>
     </div>
   </div>
 </section>
