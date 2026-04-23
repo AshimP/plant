@@ -71,11 +71,11 @@
     </div>
 
     <div class="hero-right">
-      <img
-        src="assets/hero-premium.jpg"
-        alt="Premium indoor plant collection"
-      />
-    </div>
+  <img
+    src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1600&q=80"
+    alt="Premium indoor plant collection"
+  />
+</div>
   </div>
 
   <div class="container feature-strip">
@@ -124,46 +124,46 @@
     </div>
 
     <div class="collection-grid">
-      <article class="collection-card collection-card--premium">
-        <div class="collection-image">
-         <img
-  src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1200&q=80"
-  alt="Indoor plants"
-/>
-        </div>
-        <div class="collection-title">Indoor Plants</div>
-      </article>
-
-      <article class="collection-card collection-card--premium">
-        <div class="collection-image">
-         <img
-  src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1200&q=80"
-  alt="Balcony plants"
-/>
-        </div>
-        <div class="collection-title">Balcony Plants</div>
-      </article>
-
-      <article class="collection-card collection-card--premium">
-        <div class="collection-image">
-          <img
-  src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80"
-  alt="Plants under 199"
-/>
-        </div>
-        <div class="collection-title">Low Maintenance</div>
-      </article>
-
-      <article class="collection-card collection-card--premium">
-        <div class="collection-image">
-         <img
-  src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80"
-  alt="Plants under 199"
-/>
-        </div>
-        <div class="collection-title">Plants Under ₹199</div>
-      </article>
+  <article class="collection-card collection-card--premium">
+    <div class="collection-image">
+      <img
+        src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=1400&q=80"
+        alt="Indoor plants"
+      />
     </div>
+    <div class="collection-title">Indoor Plants</div>
+  </article>
+
+  <article class="collection-card collection-card--premium">
+    <div class="collection-image">
+      <img
+        src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1400&q=80"
+        alt="Balcony plants"
+      />
+    </div>
+    <div class="collection-title">Balcony Plants</div>
+  </article>
+
+  <article class="collection-card collection-card--premium">
+    <div class="collection-image">
+      <img
+        src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1400&q=80"
+        alt="Low maintenance plants"
+      />
+    </div>
+    <div class="collection-title">Low Maintenance</div>
+  </article>
+
+  <article class="collection-card collection-card--premium">
+    <div class="collection-image">
+      <img
+        src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80"
+        alt="Plants under 199"
+      />
+    </div>
+    <div class="collection-title">Plants Under ₹199</div>
+  </article>
+</div>
   </div>
 </section>
 
@@ -288,6 +288,61 @@
       </div>
     </div>
   </section>
+  <section class="best-sellers section" id="best-sellers">
+  <div class="container">
+    <div class="section-title-wrap best-sellers-head">
+      <span class="section-mini-label">Best Sellers</span>
+      <h2>Most loved picks from our collection</h2>
+    </div>
+
+    <div class="best-seller-grid">
+      <article
+        class="best-seller-card"
+        *ngFor="let product of bestSellerProducts; trackBy: trackByProduct"
+      >
+        <div class="best-seller-card__image">
+          <img [src]="product.image" [alt]="product.name" />
+          <span class="product-badge" *ngIf="product.badge">{{ product.badge }}</span>
+        </div>
+
+        <div class="best-seller-card__content">
+          <span class="best-seller-card__tag">{{ product.tag }}</span>
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description }}</p>
+
+          <div class="best-seller-card__meta">
+            <span>☀ {{ product.light }}</span>
+            <span>💧 {{ product.water }}</span>
+            <span>📍 {{ product.placement }}</span>
+          </div>
+
+          <div class="best-seller-card__footer">
+            <strong>₹{{ product.price }}</strong>
+
+            <div class="best-seller-card__actions">
+              <button
+                type="button"
+                class="details-btn"
+                (click)="openProductDetails(product)"
+              >
+                View Details
+              </button>
+
+              <a
+                class="product-btn product-btn--premium"
+                [href]="getProductWhatsAppLink(product)"
+                target="_blank"
+                rel="noopener"
+              >
+                Order
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <section class="featured section" id="featured">
   <div class="container">
@@ -534,12 +589,12 @@
     </div>
 
     <div class="care-right care-right--premium">
-      <img
-        src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1400&q=80"
-        alt="Plant care styling"
-      />
-      <div class="care-badge">Easy care tips included</div>
-    </div>
+  <img
+    src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1600&q=80"
+    alt="Plant care styling"
+  />
+  <div class="care-badge">Easy care tips included</div>
+</div>
   </div>
 </section>
 
@@ -614,6 +669,38 @@
   </div>
 </section>
 
+<section class="service-areas section" id="service-areas">
+  <div class="container service-area-box">
+    <div class="service-area-box__content">
+      <span class="section-mini-label">Service Area</span>
+      <h2>Kolkata delivery with simple local coordination</h2>
+      <p>
+        We currently prioritize delivery across key Kolkata areas and nearby zones.
+        Exact delivery availability can always be confirmed on WhatsApp before order.
+      </p>
+
+      <div class="service-area-pills">
+        <span *ngFor="let area of serviceAreas; trackBy: trackByCategory">
+          {{ area }}
+        </span>
+      </div>
+    </div>
+
+    <div class="service-area-box__visual">
+      <div class="service-visual-card">
+        <div class="service-visual-card__top">📍 Local Delivery Coverage</div>
+        <div class="service-visual-card__center">
+          <div class="service-point">North</div>
+          <div class="service-point service-point--center">Central Kolkata</div>
+          <div class="service-point">South</div>
+        </div>
+        <div class="service-visual-card__bottom">
+          WhatsApp confirmation • Careful packaging • Easy support
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="faq section" id="faq">
   <div class="container faq-box">
     <div class="section-title-wrap">
@@ -740,4 +827,28 @@
   >
     WhatsApp
   </a>
+  <div class="mobile-action-bar">
+  <a
+    class="mobile-action-bar__item"
+    [href]="getWhatsAppLink('Hello, I want to order plants from your website.')"
+    target="_blank"
+    rel="noopener"
+  >
+    WhatsApp
+  </a>
+
+  <a
+    class="mobile-action-bar__item"
+    [href]="'tel:+' + phoneRaw"
+  >
+    Call
+  </a>
+
+  <a
+    class="mobile-action-bar__item"
+    href="#featured"
+  >
+    Browse Plants
+  </a>
+</div>
 </div>
