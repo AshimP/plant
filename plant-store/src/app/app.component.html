@@ -1,202 +1,56 @@
 <div class="site-shell">
   <div class="announcement-bar">
-  <div class="container announcement-bar__inner">
-    <span>🌿 Handpicked plants for beautiful homes</span>
-    <span>🚚 Local Kolkata delivery support</span>
-    <span>💬 Easy WhatsApp ordering & care guidance</span>
-  </div>
-</div>
- <header class="topbar">
-  <div class="container topbar__inner">
-    <a class="brand" href="#home">
-      <div class="brand__logo">🌿</div>
-      <div class="brand__text">
-        <div class="brand__title">Kolkata</div>
-        <div class="brand__sub">PLANT STORE</div>
-      </div>
-    </a>
-
-    <nav class="nav desktop-nav">
-      <a href="#home">Home</a>
-      <a href="#featured">Plants</a>
-      <a href="#collections">Categories</a>
-      <a href="#care">Care Guide</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="header-actions">
-      <a
-        class="header-whatsapp"
-        [href]="getWhatsAppLink('Hello, I want to order plants from Kolkata Plant Store.')"
-        target="_blank"
-        rel="noopener"
-      >
-        Order on WhatsApp
-      </a>
-
-      <button class="menu-btn" type="button" (click)="toggleMenu()">☰</button>
+    <div class="container announcement-bar__inner">
+      <span>🌿 Handpicked plants for beautiful homes</span>
+      <span>🚚 Local Kolkata delivery support</span>
+      <span>💬 Easy WhatsApp ordering & care guidance</span>
     </div>
   </div>
 
-  <div class="mobile-nav" [class.mobile-nav--open]="menuOpen">
-    <a href="#home" (click)="closeMenu()">Home</a>
-    <a href="#featured" (click)="closeMenu()">Plants</a>
-    <a href="#collections" (click)="closeMenu()">Categories</a>
-    <a href="#care" (click)="closeMenu()">Care Guide</a>
-    <a href="#contact" (click)="closeMenu()">Contact</a>
-  </div>
-</header>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#home">
+        <div class="brand__logo">🌿</div>
+        <div class="brand__text">
+          <div class="brand__title">Kolkata</div>
+          <div class="brand__sub">PLANT STORE</div>
+        </div>
+      </a>
 
-<section class="hero" id="home">
-  <div class="container hero-card">
-    <div class="hero-left">
-      <!-- <span class="hero-kicker">Earthy Organic Boutique</span> -->
+      <nav class="nav desktop-nav">
+        <a href="#home">Home</a>
+        <a href="#featured">Plants</a>
+        <a href="#collections">Categories</a>
+        <a href="#care">Care Guide</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-      <h1>
-        Bringing Nature
-        <br />
-        Closer to You
-        <span class="leaf-mark">🌿</span>
-      </h1>
+      <div class="header-actions">
+        <button type="button" class="header-cart">
+          Cart ({{ cartCount }})
+        </button>
 
-      <p>
-        Handpicked plants for your home,
-        balcony &amp; beautiful living.
-      </p>
-
-      <div class="hero-actions">
-        <a class="primary-btn" href="#featured">Explore Plants</a>
         <a
-          class="secondary-btn"
-          [href]="getWhatsAppLink('Hello, I want to order on WhatsApp.')"
+          class="header-whatsapp"
+          [href]="getWhatsAppLink('Hello, I want to order plants from Kolkata Plant Store.')"
           target="_blank"
           rel="noopener"
         >
           Order on WhatsApp
         </a>
+
+        <button class="menu-btn" type="button" (click)="toggleMenu()">☰</button>
       </div>
     </div>
 
-    <div class="hero-right">
-  <img
-    src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1600&q=80"
-    alt="Premium indoor plant collection"
-  />
-</div>
-  </div>
-
-  <div class="container feature-strip">
-    <div class="feature-item">
-      <div class="feature-icon">🌿</div>
-      <div>
-        <strong>Handpicked</strong>
-        <span>With Love</span>
-      </div>
+    <div class="mobile-nav" [class.mobile-nav--open]="menuOpen">
+      <a href="#home" (click)="closeMenu()">Home</a>
+      <a href="#featured" (click)="closeMenu()">Plants</a>
+      <a href="#collections" (click)="closeMenu()">Categories</a>
+      <a href="#care" (click)="closeMenu()">Care Guide</a>
+      <a href="#contact" (click)="closeMenu()">Contact</a>
     </div>
-
-    <div class="feature-item">
-      <div class="feature-icon">🚚</div>
-      <div>
-        <strong>Local Delivery</strong>
-        <span>Across Kolkata</span>
-      </div>
-    </div>
-
-    <div class="feature-item">
-      <div class="feature-icon">🍃</div>
-      <div>
-        <strong>Organic Living</strong>
-        <span>Better &amp; Greener</span>
-      </div>
-    </div>
-
-    <div class="feature-item">
-      <div class="feature-icon">🧑‍🌾</div>
-      <div>
-        <strong>Care Support</strong>
-        <span>Always Here</span>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="shop-space section" id="shop-space">
-  <div class="container">
-    <div class="section-title-wrap shop-space-head">
-      <span class="section-mini-label">Shop by Space</span>
-      <h2>Plants curated for where you actually keep them</h2>
-    </div>
-
-    <div class="shop-space-grid">
-      <article
-        class="shop-space-card"
-        *ngFor="let item of shopSpaces; trackBy: trackBySpace"
-      >
-        <div class="shop-space-card__image">
-          <img [src]="item.image" [alt]="item.title" />
-        </div>
-
-        <div class="shop-space-card__content">
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.subtitle }}</p>
-          <a href="#featured">Explore</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="collections section" id="collections">
-  <div class="container">
-    <div class="section-head">
-     <div class="section-title-wrap">
-  <span class="section-mini-label">Browse by Style</span>
-  <h2>Shop by Collection</h2>
-</div>
-      <a href="#featured">View All →</a>
-    </div>
-
-    <div class="collection-grid">
-  <article class="collection-card collection-card--premium">
-    <div class="collection-image">
-      <img
-        src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=1400&q=80"
-        alt="Indoor plants"
-      />
-    </div>
-    <div class="collection-title">Indoor Plants</div>
-  </article>
-
-  <article class="collection-card collection-card--premium">
-    <div class="collection-image">
-      <img
-        src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1400&q=80"
-        alt="Balcony plants"
-      />
-    </div>
-    <div class="collection-title">Balcony Plants</div>
-  </article>
-
-  <article class="collection-card collection-card--premium">
-    <div class="collection-image">
-      <img
-        src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1400&q=80"
-        alt="Low maintenance plants"
-      />
-    </div>
-    <div class="collection-title">Low Maintenance</div>
-  </article>
-
-  <article class="collection-card collection-card--premium">
-    <div class="collection-image">
-      <img
-        src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80"
-        alt="Plants under 199"
-      />
-    </div>
-    <div class="collection-title">Plants Under ₹199</div>
-  </article>
-</div>
-  </div>
-</section>
+  </header>
 
   <section class="hero" id="home">
     <div class="container hero-card">
@@ -228,8 +82,8 @@
 
       <div class="hero-right">
         <img
-          src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1400&q=80"
-          alt="Indoor plant styling"
+          src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1600&q=80"
+          alt="Premium indoor plant collection"
         />
       </div>
     </div>
@@ -269,622 +123,1227 @@
     </div>
   </section>
 
+  <section class="shop-space section" id="shop-space">
+    <div class="container">
+      <div class="section-title-wrap shop-space-head">
+        <span class="section-mini-label">Shop by Space</span>
+        <h2>Plants curated for where you actually keep them</h2>
+      </div>
+
+      <div class="shop-space-grid">
+        <article
+          class="shop-space-card"
+          *ngFor="let item of shopSpaces; trackBy: trackBySpace"
+        >
+          <div class="shop-space-card__image">
+            <img [src]="item.image" [alt]="item.title" />
+          </div>
+
+          <div class="shop-space-card__content">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.subtitle }}</p>
+            <a href="#featured">Explore</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="plant-finder section" id="plant-finder">
+    <div class="container plant-finder-box">
+      <div class="plant-finder-box__left">
+        <span class="section-mini-label">Plant Finder Quiz</span>
+        <h2>Find the right plant without guessing badly</h2>
+        <p>
+          Choose your space, light and care level. We’ll show a few matches that fit your routine.
+        </p>
+
+        <div class="quiz-group">
+          <h3>Where will you keep it?</h3>
+          <div class="quiz-chips">
+            <button
+              type="button"
+              class="quiz-chip"
+              *ngFor="let item of quizSpaces; trackBy: trackByCategory"
+              [class.quiz-chip--active]="quizAnswers.space === item"
+              (click)="selectQuizAnswer('space', item)"
+            >
+              {{ item }}
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-group">
+          <h3>How much light do you have?</h3>
+          <div class="quiz-chips">
+            <button
+              type="button"
+              class="quiz-chip"
+              *ngFor="let item of quizLights; trackBy: trackByCategory"
+              [class.quiz-chip--active]="quizAnswers.light === item"
+              (click)="selectQuizAnswer('light', item)"
+            >
+              {{ item }}
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-group">
+          <h3>How easy should it be?</h3>
+          <div class="quiz-chips">
+            <button
+              type="button"
+              class="quiz-chip"
+              *ngFor="let item of quizCareLevels; trackBy: trackByCategory"
+              [class.quiz-chip--active]="quizAnswers.care === item"
+              (click)="selectQuizAnswer('care', item)"
+            >
+              {{ item }}
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="details-btn details-btn--secondary" (click)="resetQuiz()">
+          Reset Quiz
+        </button>
+      </div>
+
+      <div class="plant-finder-box__right">
+        <h3 class="plant-finder-results-title">Recommended for you</h3>
+
+        <div class="plant-finder-results">
+          <article
+            class="plant-finder-card"
+            *ngFor="let product of plantFinderResults; trackBy: trackByProduct"
+          >
+            <img [src]="product.image" [alt]="product.name" />
+
+            <div class="plant-finder-card__content">
+              <strong>{{ product.name }}</strong>
+              <span>{{ product.tag }} • {{ product.light }}</span>
+
+              <div class="plant-finder-card__actions">
+                <button
+                  type="button"
+                  class="details-btn"
+                  (click)="openProductDetails(product)"
+                >
+                  View Details
+                </button>
+
+                <a
+                  class="product-btn product-btn--premium"
+                  [href]="getProductWhatsAppLink(product)"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Order
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="collections section" id="collections">
     <div class="container">
       <div class="section-head">
-        <h2>Shop by Collection</h2>
+        <div class="section-title-wrap">
+          <span class="section-mini-label">Browse by Style</span>
+          <h2>Shop by Collection</h2>
+        </div>
         <a href="#featured">View All →</a>
       </div>
 
       <div class="collection-grid">
-        <article class="collection-card">
+        <article class="collection-card collection-card--premium">
           <div class="collection-image">
             <img
-              src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=1000&q=80"
+              src="https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=1400&q=80"
               alt="Indoor plants"
             />
           </div>
           <div class="collection-title">Indoor Plants</div>
         </article>
 
-        <article class="collection-card">
+        <article class="collection-card collection-card--premium">
           <div class="collection-image">
             <img
-              src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1000&q=80"
+              src="https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1400&q=80"
               alt="Balcony plants"
             />
           </div>
           <div class="collection-title">Balcony Plants</div>
         </article>
 
-        <article class="collection-card">
+        <article class="collection-card collection-card--premium">
           <div class="collection-image">
             <img
-              src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1000&q=80"
+              src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1400&q=80"
               alt="Low maintenance plants"
             />
           </div>
           <div class="collection-title">Low Maintenance</div>
         </article>
 
-       <article class="collection-card">
-  <div class="collection-image">
-    <img
-      src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1000&q=80"
-      alt="Plants under 199"
-    />
-  </div>
-  <div class="collection-title">Plants Under ₹199</div>
-</article>
+        <article class="collection-card collection-card--premium">
+          <div class="collection-image">
+            <img
+              src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80"
+              alt="Plants under 199"
+            />
+          </div>
+          <div class="collection-title">Plants Under ₹199</div>
+        </article>
       </div>
     </div>
   </section>
-  <section class="best-sellers section" id="best-sellers">
-  <div class="container">
-    <div class="section-title-wrap best-sellers-head">
-      <span class="section-mini-label">Best Sellers</span>
-      <h2>Most loved picks from our collection</h2>
-    </div>
 
-    <div class="best-seller-grid">
-      <article
-        class="best-seller-card"
-        *ngFor="let product of bestSellerProducts; trackBy: trackByProduct"
-      >
-        <div class="best-seller-card__image">
-          <img [src]="product.image" [alt]="product.name" />
-          <span class="product-badge" *ngIf="product.badge">{{ product.badge }}</span>
-        </div>
+  <section class="combo-packs section" id="combo-packs">
+    <div class="container">
+      <div class="section-title-wrap combo-packs-head">
+        <span class="section-mini-label">Combo Packs</span>
+        <h2>Curated sets that feel more thoughtful than single picks</h2>
+      </div>
 
-        <div class="best-seller-card__content">
-          <span class="best-seller-card__tag">{{ product.tag }}</span>
-          <h3>{{ product.name }}</h3>
-          <p>{{ product.description }}</p>
-
-          <div class="best-seller-card__meta">
-            <span>☀ {{ product.light }}</span>
-            <span>💧 {{ product.water }}</span>
-            <span>📍 {{ product.placement }}</span>
+      <div class="combo-pack-grid">
+        <article
+          class="combo-pack-card"
+          *ngFor="let combo of comboPacks; trackBy: trackByCombo"
+        >
+          <div class="combo-pack-card__image">
+            <img [src]="combo.image" [alt]="combo.title" />
+            <span class="combo-pack-card__badge">{{ combo.badge }}</span>
           </div>
 
-          <div class="best-seller-card__footer">
-            <strong>₹{{ product.price }}</strong>
+          <div class="combo-pack-card__content">
+            <h3>{{ combo.title }}</h3>
+            <p>{{ combo.subtitle }}</p>
 
-            <div class="best-seller-card__actions">
-              <button
-                type="button"
-                class="details-btn"
-                (click)="openProductDetails(product)"
-              >
-                View Details
-              </button>
+            <div class="combo-pack-card__footer">
+              <strong>₹{{ combo.price }}</strong>
 
               <a
                 class="product-btn product-btn--premium"
-                [href]="getProductWhatsAppLink(product)"
+                [href]="getComboWhatsAppLink(combo)"
                 target="_blank"
                 rel="noopener"
               >
-                Order
+                Order Combo
               </a>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
-  </div>
-</section>
-<section class="combo-packs section" id="combo-packs">
-  <div class="container">
-    <div class="section-title-wrap combo-packs-head">
-      <span class="section-mini-label">Combo Packs</span>
-      <h2>Curated sets that feel more thoughtful than single picks</h2>
-    </div>
+  </section>
 
-    <div class="combo-pack-grid">
-      <article
-        class="combo-pack-card"
-        *ngFor="let combo of comboPacks; trackBy: trackByCombo"
+  <section class="gift-combos section" id="gift-combos">
+    <div class="container">
+      <div class="section-title-wrap gift-combos-head">
+        <span class="section-mini-label">Gifting Picks</span>
+        <h2>Plant gifts that feel thoughtful and premium</h2>
+      </div>
+
+      <div class="gift-combo-grid">
+        <article
+          class="gift-combo-card"
+          *ngFor="let combo of giftCombos; trackBy: trackByGiftCombo"
+        >
+          <div class="gift-combo-card__image">
+            <img [src]="combo.image" [alt]="combo.title" />
+            <span class="gift-combo-card__badge">{{ combo.badge }}</span>
+          </div>
+
+          <div class="gift-combo-card__content">
+            <h3>{{ combo.title }}</h3>
+            <p>{{ combo.subtitle }}</p>
+
+            <div class="gift-combo-card__footer">
+              <strong>₹{{ combo.price }}</strong>
+
+              <a
+                class="product-btn product-btn--premium"
+                [href]="getGiftComboWhatsAppLink(combo)"
+                target="_blank"
+                rel="noopener"
+              >
+                Order Gift Set
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="best-sellers section" id="best-sellers">
+    <div class="container">
+      <div class="section-title-wrap best-sellers-head">
+        <span class="section-mini-label">Best Sellers</span>
+        <h2>Most loved picks from our collection</h2>
+      </div>
+
+      <div class="best-seller-grid">
+        <article
+          class="best-seller-card"
+          *ngFor="let product of bestSellerProducts; trackBy: trackByProduct"
+        >
+          <div class="best-seller-card__image">
+            <img [src]="product.image" [alt]="product.name" />
+            <span class="product-badge" *ngIf="product.badge">{{ product.badge }}</span>
+          </div>
+
+          <div class="best-seller-card__content">
+            <span class="best-seller-card__tag">{{ product.tag }}</span>
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+
+            <div class="best-seller-card__meta">
+              <span>☀ {{ product.light }}</span>
+              <span>💧 {{ product.water }}</span>
+              <span>📍 {{ product.placement }}</span>
+            </div>
+
+            <div class="best-seller-card__footer">
+              <strong>₹{{ product.price }}</strong>
+
+              <div class="best-seller-card__actions">
+                <button
+                  type="button"
+                  class="details-btn"
+                  (click)="openProductDetails(product)"
+                >
+                  View Details
+                </button>
+
+                <a
+                  class="product-btn product-btn--premium"
+                  [href]="getProductWhatsAppLink(product)"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Order
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured section" id="featured">
+    <div class="container">
+      <div class="section-head featured-head">
+        <div class="section-title-wrap">
+          <span class="section-mini-label">Curated Picks</span>
+          <h2>Featured Plants</h2>
+        </div>
+      </div>
+
+      <div class="catalog-toolbar">
+        <div class="catalog-toolbar__left">
+          <div class="filter-label">Filter by Category</div>
+
+          <div class="filter-row">
+            <button
+              type="button"
+              class="filter-chip"
+              *ngFor="let category of categories; trackBy: trackByCategory"
+              [class.filter-chip--active]="selectedCategory === category"
+              (click)="selectCategory(category)"
+            >
+              {{ category }}
+            </button>
+          </div>
+        </div>
+
+        <div class="catalog-toolbar__right">
+          <div class="search-box">
+            <input
+              type="text"
+              [(ngModel)]="searchText"
+              placeholder="Search plant, tag or light..."
+            />
+          </div>
+
+          <div class="sort-box">
+            <label for="sortSelect">Sort by</label>
+            <select id="sortSelect" [(ngModel)]="sortOption">
+              <option *ngFor="let option of sortOptions; trackBy: trackBySort" [value]="option">
+                {{ option }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-grid product-grid--premium" *ngIf="sortedFilteredProducts.length > 0">
+        <article
+          class="product-card product-card--premium"
+          *ngFor="let product of sortedFilteredProducts; trackBy: trackByProduct"
+        >
+          <div class="product-card__image">
+            <img [src]="product.image" [alt]="product.name" />
+            <span class="product-tag">{{ product.tag }}</span>
+            <span class="product-badge" *ngIf="product.badge">{{ product.badge }}</span>
+
+            <span
+              class="availability-pill"
+              [ngClass]="'availability-pill--' + getAvailabilityClass(product.availability)"
+            >
+              {{ product.availability }}
+            </span>
+
+            <div class="watching-pill" *ngIf="product.watchingNow">
+              👀 {{ product.watchingNow }} people viewing
+            </div>
+          </div>
+
+          <div class="product-card__body">
+            <div class="product-card__top">
+              <div>
+                <h3>{{ product.name }}</h3>
+                <p class="product-card__desc">{{ product.description }}</p>
+              </div>
+            </div>
+
+            <div class="product-meta product-meta--premium">
+              <div class="meta-pill">☀ {{ product.light }}</div>
+              <div class="meta-pill">💧 {{ product.water }}</div>
+              <div class="meta-pill">📍 {{ product.placement }}</div>
+              <div class="meta-pill">🪴 {{ product.potSize }}</div>
+              <div class="meta-pill">⭐ {{ product.difficulty }}</div>
+            </div>
+
+            <div class="product-card__footer">
+              <div class="product-price-wrap">
+                <span class="product-price-label">Starting at</span>
+
+                <div class="product-price-row">
+                  <strong class="product-price">₹{{ product.price }}</strong>
+                  <span
+                    class="product-original-price"
+                    *ngIf="product.originalPrice && product.originalPrice > product.price"
+                  >
+                    ₹{{ product.originalPrice }}
+                  </span>
+                </div>
+
+                <span
+                  class="product-save"
+                  *ngIf="product.originalPrice && product.originalPrice > product.price"
+                >
+                  Save ₹{{ getProductSavings(product) }}
+                </span>
+              </div>
+
+              <div class="product-card__actions">
+                <button
+                  type="button"
+                  class="details-btn"
+                  (click)="openProductDetails(product)"
+                >
+                  View Details
+                </button>
+
+                <button
+                  type="button"
+                  class="compare-btn"
+                  [class.compare-btn--active]="isCompared(product)"
+                  (click)="toggleCompare(product)"
+                >
+                  {{ isCompared(product) ? 'Compared' : 'Compare' }}
+                </button>
+
+                <a
+                  class="product-btn product-btn--premium"
+                  [href]="getProductWhatsAppLink(product)"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Order on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="empty-state" *ngIf="sortedFilteredProducts.length === 0">
+        <h3>No plants found</h3>
+        <p>Try another search or choose a different category.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare-plants section" id="compare-plants" *ngIf="compareProducts.length > 0">
+    <div class="container">
+      <div class="section-title-wrap compare-plants-head">
+        <span class="section-mini-label">Compare Plants</span>
+        <h2>See the differences more clearly</h2>
+      </div>
+
+      <div class="compare-grid">
+        <article class="compare-card" *ngFor="let product of compareProducts; trackBy: trackByProduct">
+          <button
+            type="button"
+            class="compare-card__remove"
+            (click)="removeCompared(product.name)"
+            aria-label="Remove from compare"
+          >
+            ✕
+          </button>
+
+          <img [src]="product.image" [alt]="product.name" />
+
+          <div class="compare-card__content">
+            <h3>{{ product.name }}</h3>
+            <strong>₹{{ product.price }}</strong>
+
+            <div class="compare-meta">
+              <div><span>Light</span><strong>{{ product.light }}</strong></div>
+              <div><span>Water</span><strong>{{ product.water }}</strong></div>
+              <div><span>Placement</span><strong>{{ product.placement }}</strong></div>
+              <div><span>Difficulty</span><strong>{{ product.difficulty }}</strong></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="recent-related section"
+    id="recent-related"
+    *ngIf="recentlyViewedProducts.length > 0 || relatedOutsideProducts.length > 0"
+  >
+    <div class="container">
+      <div class="recent-related-grid">
+        <div class="recent-block" *ngIf="recentlyViewedProducts.length > 0">
+          <div class="section-title-wrap">
+            <span class="section-mini-label">Recently Viewed</span>
+            <h2>Your last viewed plants</h2>
+          </div>
+
+          <div class="mini-product-grid">
+            <article class="mini-product-card" *ngFor="let product of recentlyViewedProducts; trackBy: trackByProduct">
+              <img [src]="product.image" [alt]="product.name" />
+              <div class="mini-product-card__content">
+                <strong>{{ product.name }}</strong>
+                <span>₹{{ product.price }}</span>
+                <button type="button" class="details-btn" (click)="openProductDetails(product)">View</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="recent-block" *ngIf="relatedOutsideProducts.length > 0">
+          <div class="section-title-wrap">
+            <span class="section-mini-label">Related Picks</span>
+            <h2>More like your last choice</h2>
+          </div>
+
+          <div class="mini-product-grid">
+            <article class="mini-product-card" *ngFor="let product of relatedOutsideProducts; trackBy: trackByProduct">
+              <img [src]="product.image" [alt]="product.name" />
+              <div class="mini-product-card__content">
+                <strong>{{ product.name }}</strong>
+                <span>₹{{ product.price }}</span>
+                <button type="button" class="details-btn" (click)="openProductDetails(product)">View</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div
+    class="product-modal-backdrop"
+    *ngIf="selectedProduct"
+    (click)="closeProductDetails()"
+  >
+    <div
+      class="product-modal"
+      (click)="$event.stopPropagation()"
+    >
+      <button
+        type="button"
+        class="product-modal__close"
+        (click)="closeProductDetails()"
+        aria-label="Close product details"
       >
-        <div class="combo-pack-card__image">
-          <img [src]="combo.image" [alt]="combo.title" />
-          <span class="combo-pack-card__badge">{{ combo.badge }}</span>
+        ✕
+      </button>
+
+      <div class="product-modal__grid">
+        <div class="product-modal__image-wrap">
+          <div class="product-modal__image">
+            <img
+              [src]="selectedProductImage || selectedProduct.image"
+              [alt]="selectedProduct.name"
+            />
+          </div>
+
+          <div class="product-modal__thumbs" *ngIf="selectedProduct.gallery?.length">
+            <button
+              type="button"
+              class="product-modal__thumb"
+              *ngFor="let image of selectedProduct.gallery"
+              [class.product-modal__thumb--active]="selectedProductImage === image"
+              (click)="setSelectedProductImage(image)"
+            >
+              <img [src]="image" [alt]="selectedProduct.name" />
+            </button>
+          </div>
         </div>
 
-        <div class="combo-pack-card__content">
-          <h3>{{ combo.title }}</h3>
-          <p>{{ combo.subtitle }}</p>
+        <div class="product-modal__content">
+          <span class="product-modal__tag">{{ selectedProduct.tag }}</span>
 
-          <div class="combo-pack-card__footer">
-            <strong>₹{{ combo.price }}</strong>
+          <div class="product-social-proof">
+            <div class="product-social-proof__item" *ngIf="selectedProduct.soldRecently">
+              🔥 {{ selectedProduct.soldRecently }} sold in {{ selectedProduct.soldWindow }}
+            </div>
 
+            <div class="product-social-proof__item" *ngIf="selectedProduct.watchingNow">
+              👁 {{ selectedProduct.watchingNow }} people are viewing this right now
+            </div>
+          </div>
+
+          <h2>{{ selectedProduct.name }}</h2>
+
+          <p class="product-modal__desc">
+            {{ selectedProduct.description }}
+          </p>
+
+          <div class="product-modal__price-wrap">
+            <div class="product-modal__price">₹{{ selectedProduct.price }}</div>
+
+            <div
+              class="product-modal__price-meta"
+              *ngIf="selectedProduct.originalPrice && selectedProduct.originalPrice > selectedProduct.price"
+            >
+              <span class="product-original-price">₹{{ selectedProduct.originalPrice }}</span>
+              <span class="product-save">Save ₹{{ getProductSavings(selectedProduct) }}</span>
+            </div>
+          </div>
+
+          <div class="product-quick-actions">
+            <button type="button" class="text-icon-btn" (click)="askQuestion()">
+              Ask a question
+            </button>
+
+            <button type="button" class="text-icon-btn" (click)="shareSelectedProduct()">
+              Share
+            </button>
+          </div>
+
+          <div
+            class="availability-pill availability-pill--modal"
+            [ngClass]="'availability-pill--' + getAvailabilityClass(selectedProduct.availability)"
+          >
+            {{ selectedProduct.availability }}
+          </div>
+
+          <div class="watching-pill watching-pill--modal" *ngIf="selectedProduct.watchingNow">
+            👀 {{ selectedProduct.watchingNow }} people are viewing this plant
+          </div>
+
+          <div class="product-offers" *ngIf="selectedProduct.offers?.length">
+            <h3>Available Offers</h3>
+
+            <div class="offer-grid">
+              <div class="offer-card" *ngFor="let offer of selectedProduct.offers">
+                <strong>{{ offer.title }}</strong>
+                <span>{{ offer.subtitle }}</span>
+
+                <div class="offer-code-row">
+                  <em>Code: {{ offer.code }}</em>
+
+                  <button
+                    type="button"
+                    class="offer-copy-btn"
+                    (click)="copyOfferCode(offer.code)"
+                  >
+                    {{ copiedOfferCode === offer.code ? 'Copied' : 'Copy' }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dispatch-pill" *ngIf="selectedProduct.dispatchMessage">
+            🚚 {{ selectedProduct.dispatchMessage }}
+          </div>
+
+          <div class="product-modal__meta">
+            <div class="modal-info-card">
+              <strong>Light</strong>
+              <span>{{ selectedProduct.light }}</span>
+            </div>
+
+            <div class="modal-info-card">
+              <strong>Water</strong>
+              <span>{{ selectedProduct.water }}</span>
+            </div>
+
+            <div class="modal-info-card">
+              <strong>Placement</strong>
+              <span>{{ selectedProduct.placement }}</span>
+            </div>
+
+            <div class="modal-info-card">
+              <strong>Pot Size</strong>
+              <span>{{ selectedProduct.potSize }}</span>
+            </div>
+
+            <div class="modal-info-card">
+              <strong>Difficulty</strong>
+              <span>{{ selectedProduct.difficulty }}</span>
+            </div>
+          </div>
+
+          <div class="product-modal__why">
+            <h3>Why this plant?</h3>
+            <ul>
+              <li *ngFor="let reason of selectedProduct.whyThisPlant">
+                {{ reason }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="product-modal__pots">
+            <h3>Select planter style</h3>
+
+            <div class="pot-grid">
+              <button
+                type="button"
+                class="pot-card"
+                *ngFor="let pot of potOptions; trackBy: trackByPot"
+                [class.pot-card--active]="selectedPotId === pot.id"
+                (click)="selectPot(pot.id)"
+              >
+                <img [src]="pot.image" [alt]="pot.title" />
+
+                <div class="pot-card__content">
+                  <strong>{{ pot.title }}</strong>
+                  <span>{{ pot.subtitle }}</span>
+                  <em>+ ₹{{ pot.price }}</em>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="product-modal__addons">
+            <h3>Add a premium extra</h3>
+
+            <div class="addon-grid">
+              <button
+                type="button"
+                class="addon-card"
+                *ngFor="let addOn of addOnOptions"
+                [class.addon-card--active]="isAddOnSelected(addOn.id)"
+                (click)="toggleAddOn(addOn.id)"
+              >
+                <img [src]="addOn.image" [alt]="addOn.title" />
+
+                <div class="addon-card__content">
+                  <strong>{{ addOn.title }}</strong>
+                  <span>{{ addOn.subtitle }}</span>
+                  <em>+ ₹{{ addOn.price }}</em>
+                </div>
+              </button>
+            </div>
+
+            <div class="addon-total" *ngIf="selectedAddOns.length > 0">
+              Add-ons Total: ₹{{ selectedAddOnsTotal }}
+            </div>
+          </div>
+
+          <div class="product-modal__related" *ngIf="relatedProducts.length > 0">
+            <h3>You may also like</h3>
+
+            <div class="related-grid">
+              <article class="related-card" *ngFor="let item of relatedProducts; trackBy: trackByProduct">
+                <img [src]="item.image" [alt]="item.name" />
+
+                <div class="related-card__content">
+                  <strong>{{ item.name }}</strong>
+                  <span>₹{{ item.price }}</span>
+
+                  <button
+                    type="button"
+                    class="details-btn"
+                    (click)="openProductDetails(item)"
+                  >
+                    View
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="product-modal__gift">
+            <h3>Gift note / occasion</h3>
+
+            <div class="gift-fields">
+              <select [(ngModel)]="selectedOccasion">
+                <option value="">Select occasion</option>
+                <option *ngFor="let option of occasionOptions; trackBy: trackByCategory" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+
+              <textarea
+                [(ngModel)]="giftNote"
+                rows="3"
+                placeholder="Write a short gift note..."
+              ></textarea>
+            </div>
+
+            <div class="product-modal__final-total">
+              Estimated total: ₹{{ productPopupTotal }}
+            </div>
+          </div>
+
+          <div class="purchase-bar">
+            <div class="qty-stepper">
+              <button type="button" (click)="decreaseQuantity()">−</button>
+              <span>{{ selectedQuantity }}</span>
+              <button type="button" (click)="increaseQuantity()">+</button>
+            </div>
+
+            <button type="button" class="add-cart-btn" (click)="addToCart()">
+              Add to Cart
+            </button>
+          </div>
+
+          <div class="product-modal__actions">
             <a
               class="product-btn product-btn--premium"
-              [href]="getComboWhatsAppLink(combo)"
+              [href]="getProductDetailWhatsAppLink()"
               target="_blank"
               rel="noopener"
             >
-              Order Combo
+              Order on WhatsApp
             </a>
+
+            <button
+              type="button"
+              class="details-btn details-btn--secondary"
+              (click)="closeProductDetails()"
+            >
+              Close
+            </button>
           </div>
         </div>
-      </article>
-    </div>
-  </div>
-</section>
-<section class="featured section" id="featured">
-  <div class="container">
-    <div class="section-head featured-head">
-    <div class="section-title-wrap">
-  <span class="section-mini-label">Curated Picks</span>
-  <h2>Featured Plants</h2>
-</div>
-    </div>
-
-    <div class="catalog-toolbar">
-      <div class="catalog-toolbar__left">
-        <div class="filter-label">Filter by Category</div>
-
-        <div class="filter-row">
-          <button
-            type="button"
-            class="filter-chip"
-            *ngFor="let category of categories; trackBy: trackByCategory"
-            [class.filter-chip--active]="selectedCategory === category"
-            (click)="selectCategory(category)"
-          >
-            {{ category }}
-          </button>
-        </div>
-      </div>
-
-      <div class="catalog-toolbar__right">
-        <div class="search-box">
-          <input
-            type="text"
-            [(ngModel)]="searchText"
-            placeholder="Search plant, tag or light..."
-          />
-        </div>
-
-        <div class="sort-box">
-          <label for="sortSelect">Sort by</label>
-          <select id="sortSelect" [(ngModel)]="sortOption">
-            <option *ngFor="let option of sortOptions; trackBy: trackBySort" [value]="option">
-              {{ option }}
-            </option>
-          </select>
-        </div>
       </div>
     </div>
-
-    <div class="product-grid product-grid--premium" *ngIf="sortedFilteredProducts.length > 0">
-      <article
-  class="product-card product-card--premium"
-  *ngFor="let product of sortedFilteredProducts; trackBy: trackByProduct"
->
- <div class="product-card__image">
-  <img [src]="product.image" [alt]="product.name" />
-  <span class="product-tag">{{ product.tag }}</span>
-  <span class="product-badge" *ngIf="product.badge">{{ product.badge }}</span>
-</div>
-
-  <div class="product-card__body">
-    <div class="product-card__top">
-      <div>
-        <h3>{{ product.name }}</h3>
-        <p class="product-card__desc">{{ product.description }}</p>
-      </div>
-    </div>
-
-    <div class="product-meta product-meta--premium">
-      <div class="meta-pill">☀ {{ product.light }}</div>
-      <div class="meta-pill">💧 {{ product.water }}</div>
-      <div class="meta-pill">📍 {{ product.placement }}</div>
-      <div class="meta-pill">🪴 {{ product.potSize }}</div>
-      <div class="meta-pill">⭐ {{ product.difficulty }}</div>
-    </div>
-
-   <div class="product-card__footer">
-  <div class="product-price-wrap">
-    <span class="product-price-label">Starting at</span>
-    <strong class="product-price">₹{{ product.price }}</strong>
   </div>
 
-  <div class="product-card__actions">
-    <button
-      type="button"
-      class="details-btn"
-      (click)="openProductDetails(product)"
-    >
-      View Details
-    </button>
+  <section class="care section" id="care">
+    <div class="container care-box care-box--premium">
+      <div class="care-left">
+        <span class="care-kicker">Plant Care Guide</span>
 
-    <a
-      class="product-btn product-btn--premium"
-      [href]="getProductWhatsAppLink(product)"
-      target="_blank"
-      rel="noopener"
-    >
-      Order on WhatsApp
-    </a>
-  </div>
-</div>
-  </div>
-</article>
-    </div>
+        <div class="section-title-wrap">
+          <span class="section-mini-label">Simple Care</span>
+          <h2>Keep your plants healthy without overthinking it</h2>
+        </div>
 
-    <div class="empty-state" *ngIf="sortedFilteredProducts.length === 0">
-      <h3>No plants found</h3>
-      <p>Try another search or choose a different category.</p>
-    </div>
-  </div>
-</section>
-
-<div
-  class="product-modal-backdrop"
-  *ngIf="selectedProduct"
-  (click)="closeProductDetails()"
->
-  <div
-    class="product-modal"
-    (click)="$event.stopPropagation()"
-  >
-    <button
-      type="button"
-      class="product-modal__close"
-      (click)="closeProductDetails()"
-      aria-label="Close product details"
-    >
-      ✕
-    </button>
-
-    <div class="product-modal__grid">
-      <div class="product-modal__image-wrap">
-  <div class="product-modal__image">
-    <img
-      [src]="selectedProductImage || selectedProduct?.image"
-      [alt]="selectedProduct?.name"
-    />
-  </div>
-
-  <div class="product-modal__thumbs" *ngIf="selectedProduct?.gallery?.length">
-    <button
-      type="button"
-      class="product-modal__thumb"
-      *ngFor="let image of selectedProduct?.gallery"
-      [class.product-modal__thumb--active]="selectedProductImage === image"
-      (click)="setSelectedProductImage(image)"
-    >
-      <img [src]="image" [alt]="selectedProduct?.name" />
-    </button>
-  </div>
-</div>
-
-      <div class="product-modal__content">
-        <span class="product-modal__tag">{{ selectedProduct?.tag }}</span>
-
-        <h2>{{ selectedProduct?.name }}</h2>
-
-        <p class="product-modal__desc">
-          {{ selectedProduct?.description }}
+        <p>
+          Good plant care is mostly about the basics done properly. Right light,
+          sensible watering, and decent drainage solve more problems than panic.
         </p>
 
-        <div class="product-modal__price">
-          ₹{{ selectedProduct?.price }}
+        <ul class="care-list">
+          <li>Water only when the top soil feels dry</li>
+          <li>Keep bright-light plants near filtered sunlight</li>
+          <li>Always use pots with drainage holes</li>
+          <li>Ask on WhatsApp if you are unsure about placement</li>
+        </ul>
+
+        <a
+          class="secondary-btn care-btn"
+          [href]="getWhatsAppLink('Hello, I want plant care guidance before ordering.')"
+          target="_blank"
+          rel="noopener"
+        >
+          Ask for Care Help
+        </a>
+      </div>
+
+      <div class="care-right care-right--premium">
+        <img
+          src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1600&q=80"
+          alt="Plant care styling"
+        />
+        <div class="care-badge">Easy care tips included</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="post-care section" id="post-care">
+    <div class="container">
+      <div class="section-title-wrap post-care-head">
+        <span class="section-mini-label">After Purchase Support</span>
+        <h2>Care reminders and simple support after delivery</h2>
+      </div>
+
+      <div class="post-care-grid">
+        <article class="post-care-card">
+          <div class="post-care-card__icon">💧</div>
+          <h3>Watering Help</h3>
+          <p>Not sure when to water? Message us and we’ll guide you based on the plant and placement.</p>
+        </article>
+
+        <article class="post-care-card">
+          <div class="post-care-card__icon">☀</div>
+          <h3>Placement Support</h3>
+          <p>Send a photo of your room, desk or balcony and we can suggest better positioning.</p>
+        </article>
+
+        <article class="post-care-card">
+          <div class="post-care-card__icon">💬</div>
+          <h3>Post-purchase WhatsApp Help</h3>
+          <p>Simple care support continues even after the plant is delivered.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about section" id="about">
+    <div class="container about-box">
+      <div class="about-box__content">
+        <span class="section-mini-label">About Us</span>
+        <h2>Plants chosen for beautiful homes, not just shelves full of stock</h2>
+        <p>
+          Kolkata Plant Store is built around simple, handpicked greenery for homes,
+          balconies and gifting. The idea is not to overwhelm people with hundreds of
+          random plants, but to offer a smaller curated collection that looks elegant,
+          feels warm and is easier to care for.
+        </p>
+        <p>
+          We focus on healthy plants, honest guidance and easy WhatsApp ordering so
+          buying plants feels calm instead of confusing.
+        </p>
+      </div>
+
+      <div class="about-box__cards">
+        <div class="about-mini-card">
+          <strong>Curated Selection</strong>
+          <span>Thoughtful plants for real home spaces</span>
         </div>
 
-        <div class="product-modal__meta">
-          <div class="modal-info-card">
-            <strong>Light</strong>
-            <span>{{ selectedProduct?.light }}</span>
-          </div>
-
-          <div class="modal-info-card">
-            <strong>Water</strong>
-            <span>{{ selectedProduct?.water }}</span>
-          </div>
-
-          <div class="modal-info-card">
-            <strong>Placement</strong>
-            <span>{{ selectedProduct?.placement }}</span>
-          </div>
-
-          <div class="modal-info-card">
-            <strong>Pot Size</strong>
-            <span>{{ selectedProduct?.potSize }}</span>
-          </div>
-
-          <div class="modal-info-card">
-            <strong>Difficulty</strong>
-            <span>{{ selectedProduct?.difficulty }}</span>
-          </div>
+        <div class="about-mini-card">
+          <strong>Beginner Friendly</strong>
+          <span>Simple care support for easy plant ownership</span>
         </div>
 
-        <div class="product-modal__actions">
-          <a
-            class="product-btn product-btn--premium"
-            [href]="getProductWhatsAppLink(selectedProduct!)"
-            target="_blank"
-            rel="noopener"
-          >
-            Order on WhatsApp
-          </a>
-
-          <button
-            type="button"
-            class="details-btn details-btn--secondary"
-            (click)="closeProductDetails()"
-          >
-            Close
-          </button>
+        <div class="about-mini-card">
+          <strong>Local Service</strong>
+          <span>Focused on smooth delivery in Kolkata</span>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<section class="care section" id="care">
-  <div class="container care-box care-box--premium">
-    <div class="care-left">
-      <span class="care-kicker">Plant Care Guide</span>
-
-    <div class="section-title-wrap">
-  <span class="section-mini-label">Simple Care</span>
-  <h2>Keep your plants healthy without overthinking it</h2>
-</div>
-
-      <p>
-        Good plant care is mostly about the basics done properly. Right light,
-        sensible watering, and decent drainage solve more problems than panic.
-      </p>
-
-      <ul class="care-list">
-        <li>Water only when the top soil feels dry</li>
-        <li>Keep bright-light plants near filtered sunlight</li>
-        <li>Always use pots with drainage holes</li>
-        <li>Ask on WhatsApp if you are unsure about placement</li>
-      </ul>
-
-      <a
-        class="secondary-btn care-btn"
-        [href]="getWhatsAppLink('Hello, I want plant care guidance before ordering.')"
-        target="_blank"
-        rel="noopener"
-      >
-        Ask for Care Help
-      </a>
-    </div>
-
-    <div class="care-right care-right--premium">
-  <img
-    src="https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1600&q=80"
-    alt="Plant care styling"
-  />
-  <div class="care-badge">Easy care tips included</div>
-</div>
-  </div>
-</section>
-
-<section class="about section" id="about">
-  <div class="container about-box">
-    <div class="about-box__content">
-      <span class="section-mini-label">About Us</span>
-      <h2>Plants chosen for beautiful homes, not just shelves full of stock</h2>
-      <p>
-        Kolkata Plant Store is built around simple, handpicked greenery for homes,
-        balconies and gifting. The idea is not to overwhelm people with hundreds of
-        random plants, but to offer a smaller curated collection that looks elegant,
-        feels warm and is easier to care for.
-      </p>
-      <p>
-        We focus on healthy plants, honest guidance and easy WhatsApp ordering so
-        buying plants feels calm instead of confusing.
-      </p>
-    </div>
-
-    <div class="about-box__cards">
-      <div class="about-mini-card">
-        <strong>Curated Selection</strong>
-        <span>Thoughtful plants for real home spaces</span>
+  <section class="delivery section" id="delivery">
+    <div class="container delivery-box">
+      <div class="section-title-wrap">
+        <span class="section-mini-label">Delivery Info</span>
+        <h2>Simple local delivery with careful handling</h2>
       </div>
 
-      <div class="about-mini-card">
-        <strong>Beginner Friendly</strong>
-        <span>Simple care support for easy plant ownership</span>
-      </div>
+      <div class="delivery-grid">
+        <article class="delivery-card">
+          <div class="delivery-card__icon">📍</div>
+          <h3>Service Area</h3>
+          <p>Delivery available across many Kolkata areas. Exact availability can be confirmed on WhatsApp.</p>
+        </article>
 
-      <div class="about-mini-card">
-        <strong>Local Service</strong>
-        <span>Focused on smooth delivery in Kolkata</span>
+        <article class="delivery-card">
+          <div class="delivery-card__icon">📦</div>
+          <h3>Packaging</h3>
+          <p>Plants are packed carefully to reduce damage and keep the soil and pot stable during transport.</p>
+        </article>
+
+        <article class="delivery-card">
+          <div class="delivery-card__icon">⏰</div>
+          <h3>Delivery Timing</h3>
+          <p>Typical delivery timing is shared during order confirmation. Same-day or next-day may be possible for some areas.</p>
+        </article>
+
+        <article class="delivery-card">
+          <div class="delivery-card__icon">💬</div>
+          <h3>Order Support</h3>
+          <p>All order updates, care guidance and delivery confirmation can be handled directly on WhatsApp.</p>
+        </article>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="delivery section" id="delivery">
-  <div class="container delivery-box">
-    <div class="section-title-wrap">
-      <span class="section-mini-label">Delivery Info</span>
-      <h2>Simple local delivery with careful handling</h2>
-    </div>
-
-    <div class="delivery-grid">
-      <article class="delivery-card">
-        <div class="delivery-card__icon">📍</div>
-        <h3>Service Area</h3>
-        <p>Delivery available across many Kolkata areas. Exact availability can be confirmed on WhatsApp.</p>
+  <section class="trust-strip section" id="trust-strip">
+    <div class="container trust-strip-grid">
+      <article class="trust-card">
+        <div class="trust-card__icon">📦</div>
+        <h3>Careful Packaging</h3>
+        <p>Plants are packed neatly to reduce damage and travel stress.</p>
       </article>
 
-      <article class="delivery-card">
-        <div class="delivery-card__icon">📦</div>
-        <h3>Packaging</h3>
-        <p>Plants are packed carefully to reduce damage and keep the soil and pot stable during transport.</p>
+      <article class="trust-card">
+        <div class="trust-card__icon">💬</div>
+        <h3>WhatsApp Support</h3>
+        <p>Guidance for ordering, placement and basic plant care is included.</p>
       </article>
 
-      <article class="delivery-card">
-        <div class="delivery-card__icon">⏰</div>
-        <h3>Delivery Timing</h3>
-        <p>Typical delivery timing is shared during order confirmation. Same-day or next-day may be possible for some areas.</p>
+      <article class="trust-card">
+        <div class="trust-card__icon">🌿</div>
+        <h3>Healthy Plant Focus</h3>
+        <p>We keep the collection curated instead of overwhelming and random.</p>
       </article>
 
-      <article class="delivery-card">
-        <div class="delivery-card__icon">💬</div>
-        <h3>Order Support</h3>
-        <p>All order updates, care guidance and delivery confirmation can be handled directly on WhatsApp.</p>
+      <article class="trust-card">
+        <div class="trust-card__icon">🛠</div>
+        <h3>Damage Assistance</h3>
+        <p>If there is a delivery issue, message us with photos and we’ll guide you.</p>
       </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="service-areas section" id="service-areas">
-  <div class="container service-area-box">
-    <div class="service-area-box__content">
-      <span class="section-mini-label">Service Area</span>
-      <h2>Kolkata delivery with simple local coordination</h2>
-      <p>
-        We currently prioritize delivery across key Kolkata areas and nearby zones.
-        Exact delivery availability can always be confirmed on WhatsApp before order.
-      </p>
+  <section class="order-process section" id="how-it-works">
+    <div class="container">
+      <div class="section-title-wrap order-process-head">
+        <span class="section-mini-label">How Ordering Works</span>
+        <h2>Simple process, no unnecessary drama</h2>
+      </div>
 
-      <div class="service-area-pills">
-        <span *ngFor="let area of serviceAreas; trackBy: trackByCategory">
-          {{ area }}
-        </span>
+      <div class="order-process-grid">
+        <article class="order-step-card">
+          <div class="order-step-card__number">1</div>
+          <h3>Choose a Plant</h3>
+          <p>Browse by space, category, best sellers or combo packs.</p>
+        </article>
+
+        <article class="order-step-card">
+          <div class="order-step-card__number">2</div>
+          <h3>Message on WhatsApp</h3>
+          <p>Tap order and your plant details are sent automatically.</p>
+        </article>
+
+        <article class="order-step-card">
+          <div class="order-step-card__number">3</div>
+          <h3>Confirm Delivery</h3>
+          <p>We confirm area, timing and order details directly with you.</p>
+        </article>
+
+        <article class="order-step-card">
+          <div class="order-step-card__number">4</div>
+          <h3>Receive Your Plant</h3>
+          <p>Your plant arrives packed carefully with simple support available.</p>
+        </article>
       </div>
     </div>
+  </section>
 
-    <div class="service-area-box__visual">
-      <div class="service-visual-card">
-        <div class="service-visual-card__top">📍 Local Delivery Coverage</div>
-        <div class="service-visual-card__center">
-          <div class="service-point">North</div>
-          <div class="service-point service-point--center">Central Kolkata</div>
-          <div class="service-point">South</div>
-        </div>
-        <div class="service-visual-card__bottom">
-          WhatsApp confirmation • Careful packaging • Easy support
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="faq section" id="faq">
-  <div class="container faq-box">
-    <div class="section-title-wrap">
-      <span class="section-mini-label">FAQ</span>
-      <h2>Before you order</h2>
-    </div>
-
-    <div class="faq-list">
-      <details class="faq-item" open>
-        <summary>Do you deliver all over Kolkata?</summary>
-        <p>We deliver across many Kolkata locations. Share your area on WhatsApp and we will confirm availability quickly.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Are pots included with the plants?</summary>
-        <p>Yes, the nursery pot shown with the plant is included unless mentioned otherwise.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>How do I place an order?</summary>
-        <p>Click any WhatsApp order button on the website. A message will open with the plant details already filled in.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Do you provide care guidance?</summary>
-        <p>Yes. Basic care information for watering, light and placement is shared so beginners can manage plants more easily.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>What if a plant is damaged during delivery?</summary>
-        <p>Please share photos immediately on WhatsApp after delivery. We will check and guide you on the next step.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section class="testimonials section" id="reviews">
-  <div class="container">
-    <div class="section-title-wrap testimonials-head">
-      <span class="section-mini-label">Customer Love</span>
-      <h2>What people are saying</h2>
-    </div>
-
-    <div class="testimonial-grid">
-      <article class="testimonial-card" *ngFor="let item of testimonials">
-        <div class="testimonial-stars">★★★★★</div>
-
-        <p class="testimonial-text">
-          “{{ item.text }}”
+  <section class="service-areas section" id="service-areas">
+    <div class="container service-area-box">
+      <div class="service-area-box__content">
+        <span class="section-mini-label">Service Area</span>
+        <h2>Kolkata delivery with simple local coordination</h2>
+        <p>
+          We currently prioritize delivery across key Kolkata areas and nearby zones.
+          Exact delivery availability can always be confirmed on WhatsApp before order.
         </p>
 
-        <div class="testimonial-user">
-          <strong>{{ item.name }}</strong>
-          <span>{{ item.area }}</span>
+        <div class="service-area-pills">
+          <span *ngFor="let area of serviceAreas; trackBy: trackByCategory">
+            {{ area }}
+          </span>
         </div>
-      </article>
+      </div>
+
+      <div class="service-area-box__visual">
+        <div class="service-visual-card">
+          <div class="service-visual-card__top">📍 Local Delivery Coverage</div>
+          <div class="service-visual-card__center">
+            <div class="service-point">North</div>
+            <div class="service-point service-point--center">Central Kolkata</div>
+            <div class="service-point">South</div>
+          </div>
+          <div class="service-visual-card__bottom">
+            WhatsApp confirmation • Careful packaging • Easy support
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer class="footer footer--premium" id="contact">
-  <div class="container footer-grid footer-grid--premium">
-    <div class="footer-brand">
-      <h3>Kolkata Plant Store</h3>
-      <p>
-        Earthy greens for beautiful spaces. Handpicked plants for homes,
-        balconies and simple everyday joy.
-      </p>
+  <section class="delivery-checker section" id="delivery-checker">
+    <div class="container delivery-checker-box">
+      <div class="section-title-wrap">
+        <span class="section-mini-label">Delivery Checker</span>
+        <h2>Check your area or pincode</h2>
+      </div>
 
-      <div class="footer-social">
-        <span>🌿 Handpicked</span>
-        <span>🚚 Kolkata Delivery</span>
+      <div class="delivery-checker-controls">
+        <input
+          type="text"
+          [(ngModel)]="deliverySearch"
+          placeholder="Enter area or pincode"
+        />
+        <button type="button" class="product-btn product-btn--premium" (click)="checkDeliveryArea()">
+          Check
+        </button>
+      </div>
+
+      <div class="delivery-checker-result" *ngIf="deliveryResult">
+        {{ deliveryResult }}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq section" id="faq">
+    <div class="container faq-box">
+      <div class="section-title-wrap">
+        <span class="section-mini-label">FAQ</span>
+        <h2>Before you order</h2>
+      </div>
+
+      <div class="faq-search-box">
+        <input
+          type="text"
+          [(ngModel)]="faqSearch"
+          placeholder="Search a question..."
+        />
+      </div>
+
+      <div class="faq-list" *ngIf="filteredFaqs.length > 0">
+        <details
+          class="faq-item"
+          *ngFor="let item of filteredFaqs; trackBy: trackByFaq"
+        >
+          <summary>{{ item.q }}</summary>
+          <p>{{ item.a }}</p>
+        </details>
+      </div>
+
+      <div class="empty-state" *ngIf="filteredFaqs.length === 0">
+        <h3>No FAQ found</h3>
+        <p>Try another keyword.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials section" id="reviews">
+    <div class="container">
+      <div class="section-title-wrap testimonials-head">
+        <span class="section-mini-label">Customer Love</span>
+        <h2>What people are saying</h2>
+      </div>
+
+      <div class="testimonial-grid">
+        <article class="testimonial-card" *ngFor="let item of testimonials">
+          <div class="testimonial-stars">★★★★★</div>
+
+          <p class="testimonial-text">
+            “{{ item.text }}”
+          </p>
+
+          <div class="testimonial-user">
+            <strong>{{ item.name }}</strong>
+            <span>{{ item.area }}</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="customer-gallery section" id="customer-gallery">
+    <div class="container">
+      <div class="section-title-wrap customer-gallery-head">
+        <span class="section-mini-label">Customer Gallery</span>
+        <h2>Real setups from real spaces</h2>
+      </div>
+
+      <div class="customer-gallery-grid">
+        <article
+          class="customer-gallery-card"
+          *ngFor="let item of customerGallery; trackBy: trackByGallery"
+        >
+          <img [src]="item.image" [alt]="item.name" />
+
+          <div class="customer-gallery-card__content">
+            <strong>{{ item.name }}</strong>
+            <span>{{ item.area }}</span>
+            <p>{{ item.caption }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer footer--premium" id="contact">
+    <div class="container footer-grid footer-grid--premium">
+      <div class="footer-brand">
+        <h3>Kolkata Plant Store</h3>
+        <p>
+          Earthy greens for beautiful spaces. Handpicked plants for homes,
+          balconies and simple everyday joy.
+        </p>
+
+        <div class="footer-social">
+          <span>🌿 Handpicked</span>
+          <span>🚚 Kolkata Delivery</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#collections">Collections</a></li>
+          <li><a href="#featured">Featured Plants</a></li>
+          <li><a href="#care">Care Guide</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>{{ phoneDisplay }}</li>
+          <li>{{ location }}</li>
+          <li>Mon - Sun: 9:00 AM - 8:00 PM</li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col--cta">
+        <h4>Order on WhatsApp</h4>
+        <p>
+          Message us directly for ordering, care support and local delivery details.
+        </p>
+
+        <a
+          class="footer-whatsapp footer-whatsapp--premium"
+          [href]="getWhatsAppLink('Hello, I visited your website and want to order plants.')"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp Us
+        </a>
       </div>
     </div>
 
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#featured">Featured Plants</a></li>
-        <li><a href="#care">Care Guide</a></li>
-      </ul>
+    <div class="container footer-bottom footer-bottom--premium">
+      <span>© 2026 Kolkata Plant Store. All rights reserved.</span>
+      <span>Made for plant lovers in Kolkata</span>
     </div>
-
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li>{{ phoneDisplay }}</li>
-        <li>{{ location }}</li>
-        <li>Mon - Sun: 9:00 AM - 8:00 PM</li>
-      </ul>
-    </div>
-
-    <div class="footer-col footer-col--cta">
-      <h4>Order on WhatsApp</h4>
-      <p>
-        Message us directly for ordering, care support and local delivery details.
-      </p>
-
-      <a
-        class="footer-whatsapp footer-whatsapp--premium"
-        [href]="getWhatsAppLink('Hello, I visited your website and want to order plants.')"
-        target="_blank"
-        rel="noopener"
-      >
-        WhatsApp Us
-      </a>
-    </div>
-  </div>
-
-  <div class="container footer-bottom footer-bottom--premium">
-    <span>© 2026 Kolkata Plant Store. All rights reserved.</span>
-    <span>Made for plant lovers in Kolkata</span>
-  </div>
-</footer>
+  </footer>
 
   <a
     class="floating-whatsapp"
@@ -895,28 +1354,29 @@
   >
     WhatsApp
   </a>
+
   <div class="mobile-action-bar">
-  <a
-    class="mobile-action-bar__item"
-    [href]="getWhatsAppLink('Hello, I want to order plants from your website.')"
-    target="_blank"
-    rel="noopener"
-  >
-    WhatsApp
-  </a>
+    <a
+      class="mobile-action-bar__item"
+      [href]="getWhatsAppLink('Hello, I want to order plants from your website.')"
+      target="_blank"
+      rel="noopener"
+    >
+      WhatsApp
+    </a>
 
-  <a
-    class="mobile-action-bar__item"
-    [href]="'tel:+' + phoneRaw"
-  >
-    Call
-  </a>
+    <a
+      class="mobile-action-bar__item"
+      [href]="'tel:+' + phoneRaw"
+    >
+      Call
+    </a>
 
-  <a
-    class="mobile-action-bar__item"
-    href="#featured"
-  >
-    Browse Plants
-  </a>
-</div>
+    <a
+      class="mobile-action-bar__item"
+      href="#featured"
+    >
+      Browse Plants
+    </a>
+  </div>
 </div>
