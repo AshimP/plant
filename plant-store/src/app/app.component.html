@@ -1,4 +1,11 @@
 <div class="site-shell">
+  <div class="announcement-bar">
+  <div class="container announcement-bar__inner">
+    <span>🌿 Handpicked plants for beautiful homes</span>
+    <span>🚚 Local Kolkata delivery support</span>
+    <span>💬 Easy WhatsApp ordering & care guidance</span>
+  </div>
+</div>
  <header class="topbar">
   <div class="container topbar__inner">
     <a class="brand" href="#home">
@@ -112,7 +119,31 @@
     </div>
   </div>
 </section>
+<section class="shop-space section" id="shop-space">
+  <div class="container">
+    <div class="section-title-wrap shop-space-head">
+      <span class="section-mini-label">Shop by Space</span>
+      <h2>Plants curated for where you actually keep them</h2>
+    </div>
 
+    <div class="shop-space-grid">
+      <article
+        class="shop-space-card"
+        *ngFor="let item of shopSpaces; trackBy: trackBySpace"
+      >
+        <div class="shop-space-card__image">
+          <img [src]="item.image" [alt]="item.title" />
+        </div>
+
+        <div class="shop-space-card__content">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.subtitle }}</p>
+          <a href="#featured">Explore</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 <section class="collections section" id="collections">
   <div class="container">
     <div class="section-head">
@@ -343,7 +374,44 @@
     </div>
   </div>
 </section>
+<section class="combo-packs section" id="combo-packs">
+  <div class="container">
+    <div class="section-title-wrap combo-packs-head">
+      <span class="section-mini-label">Combo Packs</span>
+      <h2>Curated sets that feel more thoughtful than single picks</h2>
+    </div>
 
+    <div class="combo-pack-grid">
+      <article
+        class="combo-pack-card"
+        *ngFor="let combo of comboPacks; trackBy: trackByCombo"
+      >
+        <div class="combo-pack-card__image">
+          <img [src]="combo.image" [alt]="combo.title" />
+          <span class="combo-pack-card__badge">{{ combo.badge }}</span>
+        </div>
+
+        <div class="combo-pack-card__content">
+          <h3>{{ combo.title }}</h3>
+          <p>{{ combo.subtitle }}</p>
+
+          <div class="combo-pack-card__footer">
+            <strong>₹{{ combo.price }}</strong>
+
+            <a
+              class="product-btn product-btn--premium"
+              [href]="getComboWhatsAppLink(combo)"
+              target="_blank"
+              rel="noopener"
+            >
+              Order Combo
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 <section class="featured section" id="featured">
   <div class="container">
     <div class="section-head featured-head">

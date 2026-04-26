@@ -14,7 +14,19 @@ interface PlantItem {
   badge?: string;
   gallery?: string[];
 }
+interface SpaceItem {
+  title: string;
+  subtitle: string;
+  image: string;
+}
 
+interface ComboItem {
+  title: string;
+  subtitle: string;
+  price: number;
+  image: string;
+  badge: string;
+}
 interface TestimonialItem {
   name: string;
   area: string;
@@ -135,6 +147,7 @@ get bestSellerProducts(): PlantItem[] {
     product.badge === 'Best Seller' || product.badge === 'Popular'
   );
 }
+
 serviceAreas: string[] = [
   'Salt Lake',
   'New Town',
@@ -289,6 +302,65 @@ closeProductDetails(): void {
 
 setSelectedProductImage(image: string): void {
   this.selectedProductImage = image;
+}
+shopSpaces: SpaceItem[] = [
+  {
+    title: 'Bedroom',
+    subtitle: 'Calm greens for restful corners',
+    image: 'https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=1400&q=80'
+  },
+  {
+    title: 'Balcony',
+    subtitle: 'Fresh picks for light and open air',
+    image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1400&q=80'
+  },
+  {
+    title: 'Workspace',
+    subtitle: 'Simple plants for desks and focus',
+    image: 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1400&q=80'
+  },
+  {
+    title: 'Living Room',
+    subtitle: 'Statement greens for elegant spaces',
+    image: 'https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&w=1400&q=80'
+  }
+];
+
+comboPacks: ComboItem[] = [
+  {
+    title: 'Balcony Starter Combo',
+    subtitle: 'A simple set for brighter balcony corners and easy care.',
+    price: 499,
+    image: 'https://images.unsplash.com/photo-1485955900006-10f4d324d411?auto=format&fit=crop&w=1400&q=80',
+    badge: 'Combo Pack'
+  },
+  {
+    title: 'Bedroom Calm Combo',
+    subtitle: 'Soft indoor greens chosen for peaceful and styled spaces.',
+    price: 599,
+    image: 'https://images.unsplash.com/photo-1512428813834-c702c7702b78?auto=format&fit=crop&w=1400&q=80',
+    badge: 'Best Value'
+  },
+  {
+    title: 'Beginner Plant Pack',
+    subtitle: 'Low-maintenance plants for first-time plant owners.',
+    price: 549,
+    image: 'https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=1400&q=80',
+    badge: 'Easy Care'
+  }
+];
+getComboWhatsAppLink(combo: ComboItem): string {
+  return this.getWhatsAppLink(
+    `Hello, I want to order the ${combo.title} for ₹${combo.price}. Please share delivery details.`
+  );
+}
+
+trackBySpace(index: number, item: SpaceItem): string {
+  return item.title;
+}
+
+trackByCombo(index: number, item: ComboItem): string {
+  return item.title;
 }
 }
 
